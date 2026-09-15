@@ -1,0 +1,492 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Branching with if-else - INEG 22104 Primers</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-fa68ff6f.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-f1025986.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">INEG 22104 Primers</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="branching-with-if-else"><a class="header" href="#branching-with-if-else">Branching with if-else</a></h1>
+<p><a href="../../Slides/T06IfElse/IfElse.html">Slides for this topic</a></p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>If-else statements use logical expressions to decide whether a block of code is executed or not. These conditional statements can often be thought of as: “if a condition is true, then scenario A will take place; if the condition is false, then scenario B will execute.”</p>
+<p>Every program written so far has executed every line, top to bottom, exactly once. The inspection program from the previous chapters could read an operator’s answer and clean it up, but it could not yet <em>act</em> on it. This chapter introduces the ability to choose. The sections below cover simple if-else statements, the operators used to construct logical conditions, detecting ranges of values, several errors that are easy to make and hard to see, and nested if-else statements.</p>
+<h2 id="basic-concepts"><a class="header" href="#basic-concepts">Basic Concepts</a></h2>
+<p>The use of if-else statements allows for the creation of <strong>branches</strong> within a computer program. Branches represent different paths that a program can take depending on input from the user or the result of an expression evaluated in the program.</p>
+<p>Consider the inspector’s answer from the previous chapter. If the part passed, a passed counter should increase; otherwise a failed counter should increase. The logic is:</p>
+<ul>
+<li>if the result is <code>pass</code>, increase the passed counter</li>
+<li>otherwise, increase the failed counter</li>
+</ul>
+<p>The scenario has two, and only two, distinct outcomes (branches). Only one of the branches will execute:</p>
+<pre><code class="language-java">// one counter per outcome, each initialized to zero
+int passCount = 0;
+int failCount = 0;
+
+String inspectionResult = "pass";
+
+if (inspectionResult.equals("pass")) {   // first branch: the part passed
+    passCount += 1;                      // increase passCount by 1
+}
+else {                                   // second branch: anything else
+    failCount += 1;                      // increase failCount by 1
+}
+</code></pre>
+<p>The branch executed when the result is a pass begins with the <code>if</code> keyword, and the branch executed otherwise begins with the <code>else</code> keyword. Code in the <code>else</code> block executes when the condition in the <code>if</code> statement returns <code>false</code>. This is the most common implementation when the scenario being modeled has two outcomes.</p>
+<p>Note that the two Strings are compared with the <code>equals()</code> method from the previous chapter rather than with <code>==</code>. That distinction applies inside an if-else condition exactly as it did everywhere else: <code>==</code> compares whether two variables refer to the same object, not whether they hold the same characters. A condition written as <code>inspectionResult == "pass"</code> will compile and will quietly give the wrong answer.</p>
+<p>It is worth noting that this example is easy to predict because only one part is considered. The if-else statement becomes far more powerful when there are hundreds of parts to classify, which requires the ability to iterate through many values. Loops and arrays are studied later in the semester and offer exactly that.</p>
+<h3 id="common-error-missing-braces"><a class="header" href="#common-error-missing-braces">Common Error: Missing Braces</a></h3>
+<p>A common error when implementing if-else statements is the misplacement or omission of one or both braces (<code>{</code> or <code>}</code>). Consider the following:</p>
+<pre><code class="language-java">if (defectCount &gt; 5) {
+    System.out.println("scrap");
+else
+    System.out.println("keep");
+}
+</code></pre>
+<pre><code>error: 'else' without 'if'
+</code></pre>
+<p>The <code>if</code> block is opened but never closed, so by the time the compiler reaches <code>else</code>, there is no open <code>if</code> statement for it to attach to. In general, a left (open) and a right (close) brace are needed for each <code>if</code> and <code>else</code> block in an if-else statement.</p>
+<h2 id="logical-operators"><a class="header" href="#logical-operators">Logical Operators</a></h2>
+<p>If-else statements consist of logical expressions that determine which block of code is executed. Logical conditions are composed with the logical operators available in Java. The following table summarizes the most frequently used ones.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Operator</th><th>Description</th><th>Example (assume <code>x</code> is 5)</th></tr>
+</thead>
+<tbody>
+<tr><td><code>==</code></td><td><code>a == b</code> means a is equal to b</td><td><code>x == 5</code> is true; <code>x == 20</code> is false</td></tr>
+<tr><td><code>!=</code></td><td><code>a != b</code> means a is not equal to b</td><td><code>x != 5</code> is false; <code>x != 4</code> is true</td></tr>
+<tr><td><code>&gt;</code></td><td><code>a &gt; b</code> means a is greater than b</td><td><code>x &gt; 4</code> is true; <code>x &gt; 5</code> is false</td></tr>
+<tr><td><code>&lt;</code></td><td><code>a &lt; b</code> means a is less than b</td><td><code>x &lt; 20</code> is true; <code>x &lt; 1</code> is false</td></tr>
+<tr><td><code>&gt;=</code></td><td><code>a &gt;= b</code> means a is greater than or equal to b</td><td><code>x &gt;= 5</code> is true; <code>x &gt;= 10</code> is false</td></tr>
+<tr><td><code>&lt;=</code></td><td><code>a &lt;= b</code> means a is less than or equal to b</td><td><code>x &lt;= 16</code> is true; <code>x &lt;= 2</code> is false</td></tr>
+<tr><td><code>&amp;&amp;</code></td><td>condition 1 AND condition 2 are both true</td><td><code>x == 5 &amp;&amp; x &gt; 0</code> is true; <code>x == 5 &amp;&amp; x &lt; 0</code> is false</td></tr>
+<tr><td><code>||</code></td><td>condition 1 OR condition 2 (or both) are true</td><td><code>x == 5 || x == 0</code> is true; <code>x &lt;= 2 || x == 0</code> is false</td></tr>
+<tr><td><code>!</code></td><td>reverses a condition</td><td><code>!(x == 5)</code> is false; <code>!(x == 20)</code> is true</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="additional-outcomes-in-if-else-statements"><a class="header" href="#additional-outcomes-in-if-else-statements">Additional Outcomes in if-else Statements</a></h2>
+<p>Returning to the inspection example, a part is rarely just passed or failed. A more realistic process assigns one of three dispositions: <strong>pass</strong>, <strong>rework</strong>, or <strong>scrap</strong>. The disposition is now one of three outcomes. To add a third branch, add a third block to the if-else statement using the keywords <code>else if</code>.</p>
+<pre><code class="language-java">// a third outcome means a third counter
+int passCount = 0;
+int reworkCount = 0;
+int scrapCount = 0;
+
+String disposition = "rework";
+
+if (disposition.equals("pass")) {          // first branch
+    passCount += 1;
+}
+else if (disposition.equals("rework")) {   // second branch
+    reworkCount += 1;
+}
+else {                                     // third branch: anything else
+    scrapCount += 1;
+}
+</code></pre>
+<p>Additional <code>else if</code> blocks can be added to account for any number of outcomes. Each <code>if</code> or <code>else if</code> statement must include a logical condition. The <code>else</code> portion of the implementation executes only if all of the <code>if</code> and <code>else if</code> conditions evaluate to false.</p>
+<h2 id="detecting-ranges"><a class="header" href="#detecting-ranges">Detecting Ranges</a></h2>
+<p>In practice, a disposition is usually derived from a measurement rather than a typed word. Suppose the rule is:</p>
+<ul>
+<li>0 defects: the part passes</li>
+<li>1 to 4 defects: the part is sent for rework</li>
+<li>5 or more defects: the part is scrapped</li>
+</ul>
+<p>The middle case is a <strong>range</strong>, and a range cannot be tested with a single comparison. It requires two comparisons joined with <code>&amp;&amp;</code>, which is true only when both of its sides are true:</p>
+<pre><code class="language-java">if (defectCount == 0) {
+    System.out.println("Disposition: pass");
+}
+else if (defectCount &gt;= 1 &amp;&amp; defectCount &lt;= 4) {
+    System.out.println("Disposition: rework");
+}
+else {
+    System.out.println("Disposition: scrap");
+}
+</code></pre>
+<p>The condition <code>defectCount &gt;= 1 &amp;&amp; defectCount &lt;= 4</code> is precisely the statement “between 1 and 4, inclusive.”</p>
+<h3 id="java-has-no-chained-comparison"><a class="header" href="#java-has-no-chained-comparison">Java Has No Chained Comparison</a></h3>
+<p>Mathematical notation allows a range to be written as a single chained expression, and it is natural to try the same thing in Java:</p>
+<pre><code class="language-java">if (0 &lt;= defectCount &lt;= 4) {
+</code></pre>
+<p>This does not compile:</p>
+<pre><code>error: bad operand types for binary operator '&lt;='
+  first type:  boolean
+  second type: int
+</code></pre>
+<p>The error message explains the problem precisely. Java evaluates <code>0 &lt;= defectCount</code> first, which produces a <code>boolean</code>. It then tries to compare that <code>boolean</code> to the <code>int</code> 4, and there is no meaningful way to do so. Ranges must be built with <code>&amp;&amp;</code>.</p>
+<h3 id="the-not-operator"><a class="header" href="#the-not-operator">The NOT Operator</a></h3>
+<p>The <code>!</code> operator reverses a condition, turning true into false and false into true. It is most useful when the interesting case is the one that fails a test:</p>
+<pre><code class="language-java">if (!inspectionResult.equals("pass")) {
+    System.out.println("Part did not pass; routing to review");
+}
+</code></pre>
+<p>The condition reads as “not a pass.”</p>
+<h3 id="short-circuit-evaluation"><a class="header" href="#short-circuit-evaluation">Short-Circuit Evaluation</a></h3>
+<p>When Java evaluates an <code>&amp;&amp;</code>, it stops as soon as the left side turns out to be false, because no value on the right could make the whole expression true. The right side is never evaluated at all. This behavior is called <strong>short-circuit evaluation</strong>, and it can be used deliberately as a guard:</p>
+<pre><code class="language-java">if (partsInspected != 0 &amp;&amp; defectsFound / partsInspected &gt; 2) {
+    System.out.println("Defect rate above threshold");
+}
+</code></pre>
+<p>If <code>partsInspected</code> is 0, the left side is false, and the division on the right never runs. Without that guard, this line would produce a divide-by-zero runtime error – the same error introduced back in the chapter on error types. The order of the two conditions is what makes the guard work; reversing them would divide first and crash before the check could help.</p>
+<h2 id="two-silent-bugs"><a class="header" href="#two-silent-bugs">Two Silent Bugs</a></h2>
+<p>The missing-brace error above at least stops the compiler. The two mistakes in this section are more dangerous, because the code compiles and runs while doing the wrong thing.</p>
+<h3 id="-is-not-"><a class="header" href="#-is-not-">= Is Not ==</a></h3>
+<p>A single character separates assignment from comparison:</p>
+<pre><code class="language-java">boolean batchPassed = false;
+
+if (batchPassed = true) {
+    System.out.println("branch taken");
+}
+System.out.println("batchPassed is now " + batchPassed);
+</code></pre>
+<pre><code>branch taken
+batchPassed is now true
+</code></pre>
+<p>The <code>if</code> condition used <code>=</code>, which <strong>assigns</strong>. It stored <code>true</code> in <code>batchPassed</code>, then used that stored value as the condition – so the branch runs every time, and the variable has been silently changed along the way. The comparison intended here is <code>batchPassed == true</code>.</p>
+<h3 id="the-stray-semicolon"><a class="header" href="#the-stray-semicolon">The Stray Semicolon</a></h3>
+<p>A semicolon immediately after the condition ends the <code>if</code> statement then and there:</p>
+<pre><code class="language-java">int defectCount = 0;
+
+if (defectCount &gt; 5);
+{
+    System.out.println("scrapped a part with 0 defects");
+}
+</code></pre>
+<pre><code>scrapped a part with 0 defects
+</code></pre>
+<p>The block in braces is no longer attached to the <code>if</code> at all. It is simply the next thing the program does, so it runs unconditionally. A part with zero defects was scrapped, and nothing in the output suggests why.</p>
+<h2 id="nested-if-else-statements"><a class="header" href="#nested-if-else-statements">Nested if-else Statements</a></h2>
+<p>Implementations often call for multiple logical conditions to be evaluated before an outcome is determined. In this situation, developers can make use of <strong>nested</strong> if-else statements. A nested if-else statement is an if-else statement that is evaluated within a separate if-else statement.</p>
+<p>Consider a tool that allows a user to specify a state of residence and an income level. The program uses these two inputs to determine a tax rate and outputs the appropriate value to the screen, using the rules in the following table.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>State</th><th>Income</th><th>Tax Rate</th></tr>
+</thead>
+<tbody>
+<tr><td>WI</td><td>&gt; $200,000</td><td>50%</td></tr>
+<tr><td>WI</td><td>[$75,000, $200,000]</td><td>35%</td></tr>
+<tr><td>WI</td><td>&lt; $75,000</td><td>25%</td></tr>
+<tr><td>NC</td><td>&gt; $200,000</td><td>45%</td></tr>
+<tr><td>NC</td><td>[$75,000, $200,000]</td><td>30%</td></tr>
+<tr><td>NC</td><td>&lt; $75,000</td><td>20%</td></tr>
+<tr><td>NV</td><td>&gt; $200,000</td><td>42.5%</td></tr>
+<tr><td>NV</td><td>[$75,000, $200,000]</td><td>32.5%</td></tr>
+<tr><td>NV</td><td>&lt; $75,000</td><td>17.5%</td></tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-java">Scanner scnr = new Scanner(System.in);
+String stateInput;
+int income;
+
+System.out.println("Enter State (WI, NC or NV)");
+stateInput = scnr.nextLine();
+System.out.println("Enter Income");
+income = scnr.nextInt();
+
+double taxRate = 0;
+
+// OUTER if-else: which state was entered
+if (stateInput.equals("WI")) {
+    // NESTED if-else: which income bracket the income falls into
+    if (income &gt; 200000) {
+        taxRate = .5;
+    }
+    else if (income &gt;= 75000) {
+        taxRate = .35;
+    }
+    else {
+        taxRate = .25;
+    }
+}
+else if (stateInput.equals("NC")) {
+    if (income &gt; 200000) {
+        taxRate = .45;
+    }
+    else if (income &gt;= 75000) {
+        taxRate = .30;
+    }
+    else {
+        taxRate = .20;
+    }
+}
+else if (stateInput.equals("NV")) {
+    if (income &gt; 200000) {
+        taxRate = .425;
+    }
+    else if (income &gt;= 75000) {
+        taxRate = .325;
+    }
+    else {
+        taxRate = .175;
+    }
+}
+else {
+    System.out.println("Invalid State Entered");
+}
+
+// taxRate is still 0 for a state that matched none of the branches above,
+// so the summary is only printed for a recognized state.
+if (stateInput.equals("WI") || stateInput.equals("NC") || stateInput.equals("NV")) {
+    System.out.println("Tax rate for " + stateInput + " with income " + income + ": " + taxRate);
+}
+</code></pre>
+<p>Notice that there is an outer if-else structure corresponding to the three state options. Within each code block of the state if-else structure is a nested if-else statement modeling the three income brackets. Notice also the final <code>if</code> statement: because an unrecognized state leaves <code>taxRate</code> at 0, printing the summary unconditionally would report a tax rate of 0.0 for a state that was never valid in the first place.</p>
+<h2 id="check-your-understanding"><a class="header" href="#check-your-understanding">Check Your Understanding</a></h2>
+<ol>
+<li>In an if-else statement with an <code>if</code>, two <code>else if</code> blocks, and an <code>else</code>, how many branches execute when the program runs?</li>
+<li>Under what circumstances does the <code>else</code> block execute?</li>
+<li>Why is <code>inspectionResult.equals("pass")</code> used in the condition instead of <code>inspectionResult == "pass"</code>?</li>
+<li>Write the condition that is true when <code>defectCount</code> is between 10 and 20, inclusive.</li>
+<li>Why does <code>if (0 &lt;= defectCount &lt;= 4)</code> fail to compile? Explain what the two operand types in the error message refer to.</li>
+<li>What is printed by the code below, and why is it the wrong answer?
+<pre><code class="language-java">boolean batchPassed = false;
+if (batchPassed = true) {
+    System.out.println("passed");
+}
+</code></pre>
+</li>
+<li>In the guard <code>partsInspected != 0 &amp;&amp; defectsFound / partsInspected &gt; 2</code>, what would happen if the two conditions were written in the opposite order?</li>
+<li>In the tax rate example, which branch executes for a WI resident with an income of exactly $200,000, and why?</li>
+</ol>
+<h2 id="practice"><a class="header" href="#practice">Practice</a></h2>
+<p>Open <code>SingleIfElse.java</code> and <code>IfElseIfElse.java</code>, and change <code>inspectionResult</code> and <code>disposition</code> to confirm that a different branch executes each time.</p>
+<p>In <code>DetectingRanges.java</code>, change <code>defectCount</code> to 0, 3, and 9 and confirm that each disposition is reported correctly.</p>
+<p>Run <code>BranchingTraps.java</code> and make sure you can explain both lines of wrong output. Then uncomment traps 3 and 4 to see the two compiler errors for yourself.</p>
+<p>Finish with <code>NestedIfElse.java</code>, running it with several combinations of state and income, including a state that is not WI, NC, or NV.</p>
+<p>Two exercises to write yourself:</p>
+<ol>
+<li>Read an <code>int</code> from the user and output whether the value entered is an even or an odd number.</li>
+<li>Extend the disposition rules in <code>DetectingRanges.java</code> so that a part with more than 20 defects is reported as <code>Disposition: reject supplier lot</code> rather than <code>scrap</code>.</li>
+</ol>
+<h2 id="ai-use-disclosure"><a class="header" href="#ai-use-disclosure">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Opus 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="T05Strings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="T07SwitchStatements.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="T05Strings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="T07SwitchStatements.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

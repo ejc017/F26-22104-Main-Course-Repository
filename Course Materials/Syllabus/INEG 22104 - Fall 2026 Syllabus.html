@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INEG 22104: Computing Methods for Industrial Engineers I</title>
+<style>
+
+:root { --ink:#1a1a1a; --muted:#5b5b5b; --rule:#c9ccd1; --accent:#9d2235; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: #f4f4f6;
+  color: var(--ink);
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 12pt;
+  line-height: 1.45;
+}
+main {
+  width: min(92vw, 1180px);
+  margin: 2rem auto 4rem;
+  background: #fff;
+  padding: 3.5rem 4rem 4rem;
+  border: 1px solid #e2e3e7;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+h1.doctitle {
+  text-align: center;
+  font-size: 1.55em;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 .15em;
+}
+h1.doctitle + h1.doctitle { font-size: 1.15em; font-weight: 600; margin-top: .1em; }
+p.subtitle { text-align: center; font-size: 1.05em; font-weight: 600; margin: .1em 0; }
+p.subtitle:last-of-type { margin-bottom: 1.5em; }
+h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 2em 0 .55em;
+  padding-bottom: .2em;
+  border-bottom: 2px solid var(--rule);
+}
+h3 { font-size: 1.05em; font-weight: 700; margin: 1.5em 0 .4em; }
+p { margin: 0 0 .85em; }
+a { color: #0b5cab; }
+ul, ol { margin: 0 0 .9em; padding-left: 2.1em; }
+li { margin: 0 0 .45em; }
+li > ul, li > ol { margin-top: .45em; }
+table { border-collapse: collapse; margin: 0 0 1.2em; }
+table.grid { width: 100%; }
+table.grid th, table.grid td {
+  border: 1px solid var(--rule);
+  padding: .5em .7em;
+  text-align: left;
+  vertical-align: top;
+}
+table.grid th { background: #f0f1f4; font-weight: 700; }
+table.info { width: 100%; margin-bottom: 1.3em; }
+table.info th {
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+  width: 15em;
+  padding: .12em 1.5em .12em 0;
+  vertical-align: top;
+}
+table.info td { padding: .12em 0; vertical-align: top; }
+span.sep { display: inline-block; width: 1.6em; }
+figure { margin: 1.4em 0; text-align: center; }
+figure img { max-width: 100%; height: auto; border: 1px solid #e2e3e7; }
+p.caption { text-align: center; font-size: .9em; color: var(--muted); margin: -.9em 0 1.6em; }
+@media (max-width: 800px) {
+  main { width: 100%; padding: 1.5rem 1.15rem 2.5rem; border: 0; border-radius: 0; }
+  table.info th, table.info td { display: block; width: auto; padding: 0; }
+  table.info th { padding-top: .5em; }
+}
+@media print {
+  body { background: #fff; }
+  main { width: auto; padding: 0; border: 0; box-shadow: none; }
+}
+
+</style>
+</head>
+<body>
+<main>
+<h1 class="doctitle">INEG 22104: Computing Methods for Industrial Engineers I</h1>
+<p class="subtitle">University of Arkansas</p>
+<p class="subtitle">Fall 2026</p>
+<h2>Disclaimer</h2>
+<p>The material contained in this syllabus is subject to change upon announcement by the instructor in class.</p>
+<h2>Basic Course Information</h2>
+<table class="info">
+<tr><th>Lecture Time</th><td colspan="3">8:35 am – 9:25 am MTWR</td></tr>
+<tr><th>Lecture Location</th><td colspan="3">ENGR 209</td></tr>
+<tr><th>Instructor</th><td colspan="3">Chase Rainwater</td></tr>
+<tr><th></th><td colspan="3">Professor and Department Head of Industrial Engineering</td></tr>
+<tr><th>Instructor Email</th><td colspan="3"><a href="mailto:cer@uark.edu">cer@uark.edu</a></td></tr>
+<tr><th>Instructor Office</th><td colspan="3">BELL 4207</td></tr>
+<tr><th>Office Hours</th><td colspan="3">Mondays, 10:30 am – 11:30 am</td></tr>
+<tr><th></th><td colspan="3">BELL 4131 (Larry &amp; Gwen Stephens INEG Student Learning Center)</td></tr>
+<tr><th>Teaching Assistants</th><td>Ali Garst</td><td><a href="mailto:alig@uark.edu">alig@uark.edu</a></td><td>Office Hours: TBA</td></tr>
+<tr><th></th><td>Ahmed Khan</td><td><a href="mailto:ahmedk@uark.edu">ahmedk@uark.edu</a></td><td>Office Hours: TBA</td></tr>
+<tr><th></th><td>Emerson Brown</td><td><a href="mailto:egb021@uark.edu">egb021@uark.edu</a></td><td>Office Hours: TBA</td></tr>
+<tr><th></th><td>Samantha Kollasch</td><td><a href="mailto:kollasch@uark.edu">kollasch@uark.edu</a></td><td>Office Hours: TBA</td></tr>
+</table>
+<h2>Class Attendance</h2>
+<p>Students are expected to be in class.  Absences will be tracked.  You are allowed 2 unexcused absences.  Each unexcused absence after the 2nd will result in a 3% deduction from your final grade.  Excused absences will not count against the student.  To be excused, the absence must be approved by the instructor.  Excused absences due to illnesses need approval before the start of class and likely require a follow-up doctor’s note to be excused.  Non-emergency/illness excuses require approval at least 1 week in advance of the absence.  Emergencies will be handled on a case-by-case basis.</p>
+<h2>Computer/Software Requirements</h2>
+<p>Students are expected to bring a charged laptop to class each day with the following software installed: BellSoft JDK (Java 25), JetBrains IntelliJ IDE, GitHub Desktop, Microsoft Excel and a text editor.  Instructions will be given during the first week of class on how to obtain and install required software.</p>
+<h2>Course Communications</h2>
+<p>Communication in INEG 22104 will be done via Slack.  You will receive an invitation to a Slack workspace named ineg-22104-fall-2026.  All class announcements will be made in the #announcements channel of the class Slack workspace.  To contact an instructor and/or teaching assistant, utilize the direct message functionality of Slack.  For more information on using Slack, see <a href="https://slack.com/help/categories/360000049063">Slack Tutorials</a>.</p>
+<h2>Required Textbook</h2>
+<p>Lysecky, R. and Lizarraga, A. (2026). Programming in Java. zyBooks.</p>
+<p>Access Instructions:</p>
+<p>1. Click this link: <a href="https://learn.zybooks.com/zybook/UARKINEG22104Fall2026">https://learn.zybooks.com/zybook/UARKINEG22104Fall2026</a><br>(Do not go to the zyBooks website and create a new account)<br>2. Subscribe</p>
+<h2>Supplementary Materials</h2>
+<p>Eck, D. (2022). Introduction to Programming Using Java. Ninth Edition (Javanotes 9, JavaFX Edition). Retrieved from <a href="https://math.hws.edu/javanotes/">https://math.hws.edu/javanotes/</a>.</p>
+<p>Note: Some updates in Java 25 may not yet be reflected in this supplement, but the resource remains largely relevant to the content covered in INEG 22104.</p>
+<h2>Course Assessments and Academic Integrity</h2>
+<p>Students are required to read, understand, and abide by the university policy on academic honesty.  <u><a href="https://honesty.uark.edu/policy/">https://honesty.uark.edu/policy/</a></u></p>
+<p>When a student goes to an outside source like Stack Overflow, Chegg or relies on another student, they risk circumventing the learning and assessment process. Does that mean that other students or sources can’t be a legitimate tool in the learning process? No, but we must take utmost care to preserve the objects of our assessments.</p>
+<p>Examples of acceptable collaboration allowed in any context:</p>
+<ul>
+<li>When you encounter a compiler/build error that you do not know how to resolve, it would be perfectly acceptable to look up that error to learn what types of things cause that error and some possible fixes.</li>
+<li>If you have not used a particular package, method, object type, etc, it would be perfectly acceptable to look up its Javadoc, a video teaching how it can be generally implemented, or ask other students with experience about its general use.</li>
+<li>If something was covered in class, it would be perfectly acceptable to ask other students questions about why or how it was used in the class activities, demos, and other examples.</li>
+</ul>
+<p>Some examples of unacceptable collaboration in any context:</p>
+<ul>
+<li>Looking up or asking others for implementation solutions on parts of a particular task/objective to find out how you might implement it.</li>
+<li>Sharing files of any kind.</li>
+<li>Look at/using another student’s code as a source for you to then write your own code.</li>
+</ul>
+<p>In addition, seeking or using solutions to quizzes, exams and/or homeworks from previous semesters is prohibited.  Quizzes are to be completed independently, without any communication with other students. Again, copying or sharing of answers OR FILES will not be tolerated.  To reiterate, the use of a service like Chegg or another student to create solutions to any quiz, homework or exam without explicit instructions to the contrary will be considered an act of academic dishonesty.</p>
+<p>Artificial intelligence tools and agentic coding assistants are now widely available, and they are built directly into the software this course requires.  On some assessments in this course, zyBooks and homework assignments in particular, their use is difficult to regulate.  It is in fact important that you begin learning how to use AI appropriately as a computing resource, and we will spend time this semester exploring good practices for doing so.</p>
+<p>It is equally important to be direct about the tradeoff.  AI is not allowed on exams or quizzes.  Those assessments measure what you can do on your own, and they carry a large percentage of your grade.  Do not let the convenience of an AI-generated solution replace the learning process.  Every time you accept a solution you could not have produced or explained yourself, you are borrowing against an exam you will sit without assistance.</p>
+<ul>
+<li>AI tools of any kind are not allowed on quizzes or exams.</li>
+<li>“AI tools” in this course means any generative assistant, regardless of how you reach it.  This explicitly includes assistants embedded in IntelliJ — inline code completion, AI Chat, and agent modes that can read your project and modify files — not only browser-based chatbots.</li>
+<li>AI tool usage is allowed on zyBooks assignments.  However, it is in your best interest to attempt zyBooks questions without AI first.  Using AI as a learning aid on questions or topics you need help with is encouraged.  Using AI to generate zyBooks solutions does not support the learning process and will likely lead to difficulty on quizzes and exams.</li>
+<li>Recommended AI usage directions will be specified on homeworks and exams.  The recommended usage is likely to vary by homework and exam (and even question).</li>
+<li>When AI use is permitted on an assignment, disclose it.  Use APA 7 style, which is the most widely adopted format for citing generative AI: Author. (Year). Tool name (Version) [Large language model]. URL — for example, OpenAI. (2026). ChatGPT (GPT-5) [Large language model]. <a href="https://chat.openai.com">https://chat.openai.com</a>.  Place the reference in a comment at the top of the affected file, and add a brief note of what you used it for — for example: // Used JetBrains AI Chat to debug an off-by-one error in the loop bound.</li>
+<li>If the student has any doubt on the acceptable use of AI in this course, it is their responsibility to seek permission and clarity from the instructor.  Use of AI in a manner that is not explicitly allowed by the instructor will be considered an act of academic dishonesty.</li>
+<li>Learning content provided by the instructor (e.g. notes, demonstrations, and examples) can be used with AI tools to assists student learning efforts (e.g. summarizing notes, highlighting key concepts, emphasizing key syntax).</li>
+<li>No content provided to students in this course will have data security restrictions.  Therefore, when AI tools are allowed, students may use the tool of their choice as long as usage directions are followed and disclosure is included.</li>
+<li>All guidelines and policy governing acceptable computing practices and the use of AI apply to this course.</li>
+</ul>
+<h2>Pre- or Corequisite</h2>
+<p>Pre- or Corequisite: INEG 21003.</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Students will develop a detailed understanding of the solution to several classic industrial engineering problems.</li>
+<li>Students will utilize object-oriented programming to facilitate the solution to these problems.</li>
+</ul>
+<h2>Detailed Course Content</h2>
+<p><u>*Topics are subject to change </u></p>
+<ul>
+<li>Computing and its role in Industrial Engineering</li>
+<li>Computing
+<ul>
+<li>Students will learn how to make use of different variable types in the implementation</li>
+<li>Students will learn to read and write variable values to and from text files</li>
+<li>Students will learn how to format results for output</li>
+</ul></li>
+<li>Learning Curves
+<ul>
+<li>INEG
+<ul>
+<li>Students will learn the correlation between effort and performance towards becoming proficient in a task</li>
+<li>Students will learn to distinguish between diminishing returns, increasing returns and the behavior captured by the S-curve</li>
+</ul></li>
+<li>Computing
+<ul>
+<li>Students will learn how to store and access 1-D arrays of numerical data</li>
+<li>Students will learn iterative computing techniques (while/for loops) necessary for many calculations</li>
+</ul></li>
+</ul></li>
+<li>Basic Statistics
+<ul>
+<li>INEG
+<ul>
+<li>Students will learn to calculate the descriptive statistics</li>
+</ul></li>
+<li>Computing
+<ul>
+<li>Students will learn how to use nested iterative computing methods</li>
+</ul></li>
+</ul></li>
+<li>Basic Probability
+<ul>
+<li>INEG
+<ul>
+<li>Students will apply probability mass function and cumulative distribution functions for uniform, binomial, exponential and normal random variables</li>
+</ul></li>
+<li>Computing
+<ul>
+<li>Students will learn program flow control and branching</li>
+</ul></li>
+</ul></li>
+<li>Forecasting Methods
+<ul>
+<li>INEG
+<ul>
+<li>Students will learn the differences between straight line, moving average and weighted-moving average forecasting</li>
+<li>Students will implement and compare naïve, moving average, weighted moving average and exponential smoothing methods</li>
+</ul></li>
+<li>Computing
+<ul>
+<li>Students will learn how to develop user-defined methods</li>
+</ul></li>
+</ul></li>
+<li>Engineering economics
+<ul>
+<li>INEG
+<ul>
+<li>Students will learn the concept of rate of return</li>
+<li>Students will learn to calculate present and future value</li>
+</ul></li>
+<li>Computing
+<ul>
+<li>Students will learn the concept and implementation of a class</li>
+</ul></li>
+</ul></li>
+<li>Inventory Control
+<ul>
+<li>INEG
+<ul>
+<li>Students will learn to compute an economic order quantity</li>
+<li>Students will learn to compute the economic lot size</li>
+<li>Students will learn to simulate periodic review (<em>Q</em>,<em>r</em>) inventory policy with random demand and lead-time</li>
+</ul></li>
+<li>Computing
+<ul>
+<li>Students will learn debugging strategies and tools</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2>Bi-Weekly Reflections</h2>
+<p>Consistent engagement is essential for success.  This course uses Bi-Weekly Reflections as a graded mechanism to document engagement, progress, and professional practice.  One reflection will be due every two weeks throughout the semester and is submitted through Blackboard.  Each reflection will have prompts that need to be fully addressed to receive credit.  Reflections are expected to include a brief synopsis of work completed outside of class as well as thoughtful responses to reflection and engagement prompts.  Incomplete, superficial, or missing responses may receive reduced or zero credit.</p>
+<h2>On-Paper Tests</h2>
+<p>This course includes on-paper, in-class tests designed to assess understanding of engineering problem solving and computational thinking.  These assessments are intentionally different from traditional programming exams.  Students will not be expected to memorize large amounts of syntax or reproduce extensive code from memory.  Instead, tests will focus on a student’s ability to understand, analyze, and reason about software solutions and computational approaches used throughout the course.</p>
+<p>These assessments exist to ensure that students can independently demonstrate understanding of the concepts and techniques used in their coursework.  Success on the tests requires comprehension of the underlying logic, problem-solving strategies, and engineering decisions involved in developing software solutions.</p>
+<p>Test questions may ask students to:</p>
+<ul>
+<li>Determine what a block of code accomplishes</li>
+<li>Identify errors, flaws, or inefficiencies in existing code</li>
+<li>Evaluate alternative design approaches</li>
+<li>Select appropriate data structures, libraries, or tools for a given problem</li>
+<li>Break complex problems into logical solution steps</li>
+<li>Explain the reasoning behind implementation decisions</li>
+<li>Interpret output or behavior of an existing program</li>
+</ul>
+<h2>Grading</h2>
+<table class="info">
+<tr><th>zyBooks assignments</th><td>10%</td></tr>
+<tr><th>Quizzes</th><td>15%</td></tr>
+<tr><th>Homework</th><td>20%</td></tr>
+<tr><th>Exam 1</th><td>15%</td></tr>
+<tr><th>Exam 2</th><td>15%</td></tr>
+<tr><th>Final Exam</th><td>15%</td></tr>
+<tr><th>Bi-Weekly Reflections</th><td>10%</td></tr>
+</table>
+<p>Unexcused absences beyond the second will result in a 3% deduction from the final grade per absence, as described under Class Attendance.</p>
+<p>There is potential for rewards at the end of the class for outstanding academic achievement, dedication, and/or community support.</p>
+<h2>AI Use Disclosure</h2>
+<p>Microsoft. (2026). Microsoft Copilot [Large language model]. <a href="https://copilot.microsoft.com">https://copilot.microsoft.com</a></p>
+<p>Microsoft Copilot was used to support the drafting, formatting, and revision of this syllabus.</p>
+</main>
+</body>
+</html>

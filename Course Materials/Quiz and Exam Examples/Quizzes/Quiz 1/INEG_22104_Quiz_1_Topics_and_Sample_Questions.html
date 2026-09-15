@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INEG 22104: Quiz 1 - Topics and Sample Questions</title>
+<style>
+:root { --ink:#1a1a1a; --muted:#5b5b5b; --rule:#c9ccd1; --accent:#9d2235; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #f4f4f6; color: var(--ink); font-family: Calibri, "Segoe UI", system-ui, -apple-system, sans-serif; font-size: 11pt; line-height: 1.45; }
+main { width: min(92vw, 1180px); margin: 2rem auto 4rem; background: #fff; padding: 3.5rem 4rem 4rem; border: 1px solid #e2e3e7; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1.doctitle { text-align: center; font-size: 1.55em; font-weight: 700; line-height: 1.25; margin: 0 0 .15em; }
+p.subtitle { text-align: center; font-size: 1.05em; font-weight: 600; margin: .1em 0; }
+p.subtitle.last { margin-bottom: 1.5em; }
+h2 { font-size: 1.2em; font-weight: 700; margin: 2em 0 .55em; padding-bottom: .2em; border-bottom: 2px solid var(--rule); }
+h3 { font-size: 1.05em; font-weight: 700; margin: 1.5em 0 .4em; }
+p { margin: 0 0 .85em; }
+a { color: #0b5cab; }
+ul, ol { margin: 0 0 .9em; padding-left: 2.1em; }
+li { margin: 0 0 .45em; }
+li > ul, li > ol { margin-top: .45em; }
+table { border-collapse: collapse; margin: 0 0 1.2em; }
+table.grid { width: 100%; }
+table.grid th, table.grid td { border: 1px solid var(--rule); padding: .5em .7em; text-align: left; vertical-align: top; }
+table.grid th { background: #f0f1f4; font-weight: 700; }
+code { font-family: Consolas, "Courier New", monospace; background:#f6f6f8; padding:.06em .25em; border:1px solid #e2e3e7; border-radius:2px; }
+pre { background:#f6f6f8; border:1px solid #e2e3e7; padding:.8em 1em; overflow-x:auto; }
+pre code { background: transparent; border:0; padding:0; }
+blockquote { margin: 1em 0 1em 1em; padding-left: 1em; border-left: 4px solid var(--rule); color: var(--muted); }
+.callout { background: #fbeceb; border: 1px solid #e8b9b9; border-left: 4px solid var(--accent); border-radius: 3px; padding: .9em 1.1em; margin: 0 0 1.2em; }
+.callout strong { color: var(--accent); }
+.question { margin: 0 0 1.6em; padding-bottom: 1.2em; border-bottom: 1px solid var(--rule); }
+.question:last-of-type { border-bottom: 0; }
+.qmeta { color: var(--muted); font-weight: 700; font-size: .95em; margin: 0 0 .4em; }
+.ai-citation-spacer { height: 1.4em; }
+hr { border: none; border-top: 2px solid var(--rule); margin: 2em 0; }
+@media (max-width: 800px) { main { width: 100%; padding: 1.5rem 1.15rem 2.5rem; border: 0; border-radius: 0; } }
+@media print { body { background: #fff; } main { width: auto; padding: 0; border: 0; box-shadow: none; } }
+@page { margin: .72in; @bottom-center { content: "INEG 22104 Quiz 1 Topics and Sample Questions - Page " counter(page) " of " counter(pages); font-size: 9pt; color: #5b5b5b; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1 class="doctitle">INEG 22104: Quiz 1 &ndash; Topics and Sample Questions</h1>
+<p class="subtitle">University of Arkansas</p>
+<p class="subtitle last">Fall 2026</p>
+
+<hr>
+
+<h2>Purpose of This Document</h2>
+
+<div class="callout">
+<strong>These sample questions are not the actual quiz.</strong> They exist to show you the <em>type</em>, <em>format</em>, and <em>difficulty</em> of questions you can expect on Quiz 1. Studying the topics below and being able to answer questions like these is good preparation, but the real quiz will use different specific examples, values, and code snippets.
+</div>
+
+<p>Quiz 1 is given in class, is completed in Blackboard, and is timed at approximately 10 minutes. It contains 8 questions, each either multiple choice or fill-in-the-answer.</p>
+
+<hr>
+
+<h2>Topics Covered (T01&ndash;T03)</h2>
+
+<h3>T01 &ndash; Development Environment (Git, GitHub, GitHub Desktop, IntelliJ)</h3>
+<ul>
+<li>The difference between <strong>Git</strong> (tracks changes to files), <strong>GitHub</strong> (stores repositories online), <strong>GitHub Desktop</strong> (a graphical app for using Git without the command line), and <strong>IntelliJ</strong> (the IDE used to write, compile, and run Java code)</li>
+</ul>
+
+<h3>T02 &ndash; Introduction to Java</h3>
+<ul>
+<li>The role of the <code>main</code> method</li>
+<li>Matching braces (<code>{ }</code>) and semicolons (<code>;</code>)</li>
+<li>Whitespace, indentation, and comments (<code>//</code> single-line, <code>/* */</code> multi-line)</li>
+<li>The three categories of errors:
+  <ul>
+  <li><strong>Syntax errors</strong> &ndash; prevent the code from compiling</li>
+  <li><strong>Logic errors</strong> &ndash; the code compiles and runs, but produces the wrong result</li>
+  <li><strong>Runtime errors</strong> &ndash; the code compiles, but terminates unexpectedly during execution</li>
+  </ul>
+</li>
+</ul>
+
+<h3>T03 &ndash; Variables</h3>
+<ul>
+<li>Every variable has a <strong>type</strong> and a <strong>name</strong></li>
+<li>Common types: <code>int</code>, <code>double</code>, <code>float</code>, <code>char</code>, <code>String</code>, <code>boolean</code></li>
+<li>Variable naming rules (must start with a letter, <code>_</code>, or <code>$</code>; case-sensitive; cannot be a reserved word) and <code>camelCase</code> convention</li>
+<li>The assignment operator (<code>=</code>) vs. mathematical equality</li>
+<li><code>final</code> constants</li>
+<li>Printing variable values with <code>System.out.println</code> and string concatenation (<code>+</code>)</li>
+</ul>
+
+<hr>
+
+<h2>Sample Questions</h2>
+
+<div class="question">
+<p class="qmeta">1. [Multiple Choice] Fundamental Concepts</p>
+<p>Which data type would be most appropriate for storing whether a machine passed inspection (<code>yes</code>/<code>no</code>)?</p>
+<p>A) <code>int</code><br>
+B) <code>String</code><br>
+C) <code>boolean</code><br>
+D) <code>double</code></p>
+</div>
+
+<div class="question">
+<p class="qmeta">2. [Fill-in-the-Answer] Fundamental Concepts</p>
+<p>Which of the following is the only <em>legal</em> Java variable name: <code>1stPlace</code>, <code>first place</code>, <code>int</code>, <code>_temp</code>?</p>
+</div>
+
+<div class="question">
+<p class="qmeta">3. [Multiple Choice] Error Recognition</p>
+<pre><code>public class Demo {
+    public static void main(String[] args) {
+        int x = 5
+        System.out.println(x);
+    }
+}</code></pre>
+<p>What type of error is present in this code?</p>
+<p>A) Syntax error<br>
+B) Logic error<br>
+C) Runtime error<br>
+D) No error &mdash; this is valid code</p>
+</div>
+
+<div class="question">
+<p class="qmeta">4. [Fill-in-the-Answer] Error Recognition</p>
+<pre><code>int length = 4;
+int width = 5;
+int area = length + width;
+System.out.println("Area: " + area);</code></pre>
+<p>The code compiles and runs to completion, printing <code>Area: 9</code> &mdash; but the programmer intended to calculate the <em>area</em> of a rectangle. What type of error is this?</p>
+</div>
+
+<div class="question">
+<p class="qmeta">5. [Fill-in-the-Answer] Predict the Output</p>
+<pre><code>public class Shop {
+    public static void main(String[] args) {
+        int batchSize = 250;
+        System.out.println("Batch size: " + batchSize);
+    }
+}</code></pre>
+<p>What does this program print?</p>
+</div>
+
+<div class="question">
+<p class="qmeta">6. [Multiple Choice] Predict the Output</p>
+<pre><code>int batchSize = 250;
+int defectCount = 12;
+int goodUnits = batchSize - defectCount;
+System.out.println("Good units: " + goodUnits);</code></pre>
+<p>A) <code>Good units: 238</code><br>
+B) <code>Good units: 262</code><br>
+C) <code>Good units: goodUnits</code><br>
+D) Compile error</p>
+</div>
+
+<div class="question">
+<p class="qmeta">7. [Multiple Choice] GitHub vs. GitHub Desktop vs. IntelliJ</p>
+<p>Which tool would you use to write, compile, and run your Java code?</p>
+<p>A) GitHub<br>
+B) GitHub Desktop<br>
+C) IntelliJ<br>
+D) Git</p>
+</div>
+
+<div class="question">
+<p class="qmeta">8. [Fill-in-the-Answer] GitHub vs. GitHub Desktop vs. IntelliJ</p>
+<p>Which tool provides a graphical interface for committing and pushing your changes without typing Git commands into a terminal?</p>
+</div>
+
+<hr>
+
+<h2>Answer Key</h2>
+
+<table class="grid">
+<thead>
+<tr><th>#</th><th>Answer</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>C &ndash; <code>boolean</code></td></tr>
+<tr><td>2</td><td><code>_temp</code></td></tr>
+<tr><td>3</td><td>A &ndash; Syntax error</td></tr>
+<tr><td>4</td><td>Logic error</td></tr>
+<tr><td>5</td><td><code>Batch size: 250</code></td></tr>
+<tr><td>6</td><td>A &ndash; <code>Good units: 238</code></td></tr>
+<tr><td>7</td><td>C &ndash; IntelliJ</td></tr>
+<tr><td>8</td><td>GitHub Desktop</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2>AI Use Disclosure</h2>
+
+<p>Anthropic. (2026). Claude Code (Sonnet 5) [Large language model]. <a href="https://claude.com/claude-code">https://claude.com/claude-code</a></p>
+
+<p>Claude Code was used to draft the topic summary and sample questions in this document, and to verify the sample code snippets by compiling and running them.</p>
+
+<div class="ai-citation-spacer"></div>
+
+</main>
+</body>
+</html>

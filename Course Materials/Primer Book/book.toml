@@ -1,0 +1,8 @@
+[book]
+title = "INEG 22104 Primers"
+authors = ["Chase Rainwater"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"

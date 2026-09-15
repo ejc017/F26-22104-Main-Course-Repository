@@ -1,0 +1,1333 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>INEG 22104 Primers</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-fa68ff6f.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-f1025986.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">INEG 22104 Primers</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="creating-your-first-project"><a class="header" href="#creating-your-first-project">Creating Your First Project</a></h1>
+<p><a href="../../Setup%20Guides/Create%20First%20IntelliJ%20Project/Creating_Basic_IntelliJ_Project_Instructions.html">Setup Guide: Creating an IntelliJ Project</a></p>
+<h2 id="from-idea-to-running-program"><a class="header" href="#from-idea-to-running-program">From Idea to Running Program</a></h2>
+<p>Writing a Java program means going through the same basic cycle every time: write source code in a <code>.java</code> file, have that code compiled, and then run it to see what it produces. IntelliJ IDEA is the tool this course uses to do all three of those steps – editing, compiling, and running – without leaving one application.</p>
+<h2 id="projects-packages-and-classes"><a class="header" href="#projects-packages-and-classes">Projects, Packages, and Classes</a></h2>
+<p>IntelliJ organizes code into a <strong>project</strong> – a top-level container for everything related to what you’re building. Inside a project, source files are grouped into <strong>packages</strong>, which are just folders that give related classes a shared, unique name. Inside a package, each <code>.java</code> file defines one <strong>class</strong>.</p>
+<p>For example, the file you’ll work with for this topic is organized like this:</p>
+<pre><code>instructor/demo/topic01/FirstClass.java
+</code></pre>
+<p>which corresponds to the class <code>FirstClass</code>, in the package <code>instructor.demo.topic01</code>. The very first line of the file declares that package membership:</p>
+<pre><code class="language-java">package instructor.demo.topic01;
+</code></pre>
+<p>We’ll cover exactly what makes up the rest of a class – braces, the <code>main</code> method, semicolons – in the next topic. For now, the important thing is simply recognizing that a <code>.java</code> file’s location on disk (its package) and its content (its class) are directly tied together, and IntelliJ manages that relationship for you.</p>
+<h2 id="running-a-program"><a class="header" href="#running-a-program">Running a Program</a></h2>
+<p>To run <code>FirstClass.java</code>, right-click the file (or the class inside it) and choose <strong>Run</strong>. IntelliJ does two things when you do this: it <strong>compiles</strong> your source code, translating it into a form the computer can execute, and then it <strong>executes</strong> that compiled program. If there’s a compile error, you’ll never get to the execution step – IntelliJ will report the problem instead of running anything.</p>
+<h2 id="reading-the-output"><a class="header" href="#reading-the-output">Reading the Output</a></h2>
+<p>Once a program runs, its console output appears in a panel at the bottom of the IntelliJ window. <code>FirstClass.java</code> produces one line of output:</p>
+<pre><code>First Program Success
+</code></pre>
+<p>That line comes from a single statement in the program: <code>System.out.println(...)</code>, which prints whatever text is inside the parentheses to the console. Getting comfortable with running a program and immediately checking its console output – does it look like what I expected? – is a habit you’ll use constantly throughout this course.</p>
+<h2 id="check-your-understanding"><a class="header" href="#check-your-understanding">Check Your Understanding</a></h2>
+<ol>
+<li>What are the three steps in going from Java source code to a running program?</li>
+<li>What is the relationship between a package, a folder on disk, and a class?</li>
+<li>What does IntelliJ’s <strong>Run</strong> command actually do, in what order?</li>
+<li>If a program has a compile error, will it still produce console output? Why or why not?</li>
+</ol>
+<h2 id="practice"><a class="header" href="#practice">Practice</a></h2>
+<p>See <code>FirstClass.java</code> for the example discussed above – try running it yourself and confirming the output matches what’s shown here.</p>
+<h2 id="ai-use-disclosure"><a class="header" href="#ai-use-disclosure">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Sonnet 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="introduction-to-java-comments-and-whitespace"><a class="header" href="#introduction-to-java-comments-and-whitespace">Introduction to Java, Comments, and Whitespace</a></h1>
+<p><a href="../../Slides/T02IntroToJava/IntroductionToJava.html">Slides: Introduction to Java</a> · <a href="../../Slides/T02IntroToJava/Comments_Errors_Whitespace.html">Slides: Comments, Whitespace, and Errors</a></p>
+<h2 id="what-a-computer-program-does"><a class="header" href="#what-a-computer-program-does">What a Computer Program Does</a></h2>
+<p>Every computer program, no matter how complex, is built from the same three pieces: it takes <strong>input</strong> (from a keyboard, a text file, a database, or a user interface), it does some <strong>processing</strong> on that input (expressions, loops, branching, algorithms), and it produces <strong>output</strong> (to a console, a text file, a database, or a user interface). As you learn Java, it can help to ask of any piece of code: what is its input, what processing is it doing, and what output does it produce?</p>
+<h2 id="why-java"><a class="header" href="#why-java">Why Java</a></h2>
+<p>Java is an <strong>object-oriented</strong> language, and a large amount of engineering and scientific software – including many third-party libraries you may use later in this course and in your career – is written in it. Learning an object-oriented language like Java first also tends to make it easier to pick up other, more scripting-oriented languages later (Python, MATLAB, R), since many of the underlying concepts (variables, types, control flow) carry over directly.</p>
+<h2 id="anatomy-of-a-java-class"><a class="header" href="#anatomy-of-a-java-class">Anatomy of a Java Class</a></h2>
+<p>A Java source file has a <code>.java</code> extension, and it is commonly referred to as a <strong>class file</strong>, because its contents define a <strong>class</strong>. When you are starting out, the name of the file must match the name of the public class defined inside it – a file named <code>FirstClass.java</code> must define <code>public class FirstClass</code>.</p>
+<pre><code class="language-java">public class FirstClass {
+
+}
+</code></pre>
+<h3 id="braces"><a class="header" href="#braces">Braces</a></h3>
+<p>The open and closed braces (<code>{</code> and <code>}</code>) mark the beginning and end of a programming construct – a class, a method, a loop, and so on. A very common error, especially early on, is forgetting to close a brace that was opened. A useful habit: whenever you type an opening brace, immediately type its matching closing brace, then go back and fill in what belongs between them. If your code won’t compile and the error is confusing, counting open braces against closed braces is often the fastest way to find the problem.</p>
+<h3 id="the-main-method"><a class="header" href="#the-main-method">The <code>main</code> Method</a></h3>
+<p>When a Java program runs, it starts by executing a method named <code>main</code>. For now, every class file you write will need a <code>main</code> method, and – until we introduce custom methods and classes later in the course – essentially all of your code will live inside it.</p>
+<pre><code class="language-java">public class FirstClass {
+
+    public static void main(String[] args) {
+        System.out.println("First Program Success");
+    }
+}
+</code></pre>
+<h3 id="semicolons"><a class="header" href="#semicolons">Semicolons</a></h3>
+<p>In Java, a line of code ends with a semicolon (<code>;</code>). Leaving one off is one of the most common early compile errors, and the compiler’s error message will point you to roughly where it expected one.</p>
+<h2 id="whitespace-doesnt-change-what-your-code-does"><a class="header" href="#whitespace-doesnt-change-what-your-code-does">Whitespace Doesn’t Change What Your Code Does</a></h2>
+<p>Java almost entirely ignores whitespace – blank lines, extra spaces, and indentation have no effect on how your program runs. That does not mean whitespace doesn’t matter; it matters enormously for <em>you</em>, the person reading the code.</p>
+<h3 id="blank-lines"><a class="header" href="#blank-lines">Blank Lines</a></h3>
+<p>Blank lines inside a method have no effect on execution. Given the code below, there are exactly four statements that do anything (the four lines ending in a semicolon); the blank lines around them are invisible to the compiler.</p>
+<pre><code class="language-java">public static void main(String[] args) {
+
+    int a = 1;
+
+    int b = 2;
+
+    int c = a + b;
+    System.out.println(c);
+
+}
+</code></pre>
+<p>Use blank lines the way you’d use paragraph breaks in writing: to visually separate one idea or section of code from the next. Overusing them, on the other hand, just makes code longer to scroll through without adding any clarity.</p>
+<h3 id="spacing-within-a-line"><a class="header" href="#spacing-within-a-line">Spacing Within a Line</a></h3>
+<p>The number of spaces between tokens on a single line also has no effect on execution. Both lines below compile and run identically:</p>
+<pre><code class="language-java">int x = 5;
+int y  =   5;
+</code></pre>
+<p>By convention (and because most IDEs auto-format this way), use a single space around operators like <code>=</code>.</p>
+<h3 id="indentation"><a class="header" href="#indentation">Indentation</a></h3>
+<p>Indentation – how far a line is shifted to the right – has no impact on execution, but a large impact on readability. Code that is nested inside another block (inside a class, inside a method, inside a loop) should be indented to show that hierarchy. You’ve already seen a simple example of this: the <code>main</code> method’s body is indented one level inside the class body. This convention becomes much more important once you start writing loops and conditionals, where several levels of nesting are common.</p>
+<h2 id="comments"><a class="header" href="#comments">Comments</a></h2>
+<p>A <strong>comment</strong> is text in your source file that the compiler ignores entirely – it exists only for people reading the code. Comments are useful for explaining <em>why</em> code does something (not just <em>what</em> it does, which the code itself already shows), organizing a file into labeled sections, and leaving yourself <code>TODO</code> notes.</p>
+<p>Java has two comment styles:</p>
+<pre><code class="language-java">// A single-line comment runs from // to the end of the line.
+
+/*
+A multi-line comment starts with /* and ends with the matching */
+/* and can span as many lines as you need.
+*/
+</code></pre>
+<h2 id="understanding-errors"><a class="header" href="#understanding-errors">Understanding Errors</a></h2>
+<p>You will encounter errors constantly while learning to program – that’s normal, not a sign you’re doing something wrong. What matters is recognizing which of three broad categories an error falls into, because each is diagnosed differently.</p>
+<p><strong>Syntax errors</strong> prevent your code from compiling at all. IntelliJ flags these as you type, typically with a red squiggly underline, and the compiler will refuse to run the program until they’re fixed. Missing semicolons and mismatched braces are common syntax errors.</p>
+<p><strong>Logic errors</strong> let the code compile and run to completion, but the result is wrong because of a flaw in how you implemented it – for example, using the wrong formula, or a loop that runs one too many or too few times. Java can’t detect these for you, since as far as the compiler is concerned nothing is wrong; you have to catch them by checking your output against what you expected.</p>
+<p><strong>Runtime errors</strong> occur when code that compiles fine is asked, during execution, to do something Java does not allow – and the program terminates prematurely as a result. A classic example is dividing an integer by zero:</p>
+<pre><code class="language-java">int a = 8;
+int b = 0;
+int c = a / b;   // compiles fine, but throws an exception when run
+</code></pre>
+<p>Running this produces an error along these lines:</p>
+<pre><code>Exception in thread "main" java.lang.ArithmeticException: / by zero
+</code></pre>
+<p>Learning to read messages like this one – which exception was thrown, and on which line – is a skill you’ll rely on throughout the course.</p>
+<h2 id="check-your-understanding-1"><a class="header" href="#check-your-understanding-1">Check Your Understanding</a></h2>
+<ol>
+<li>What are the three things every computer program does, in terms of input, processing, and output?</li>
+<li>Why must the file name and the public class name match in a Java file (for now)?</li>
+<li>If your code won’t compile because of a mismatched brace, what’s a good strategy for finding the problem?</li>
+<li>Does adding extra blank lines or spaces change what a Java program does? What <em>is</em> it useful for?</li>
+<li>What’s the difference between a single-line comment and a multi-line comment in Java?</li>
+<li>Classify each of the following as a syntax, logic, or runtime error: (a) forgetting a semicolon, (b) a loop that runs one time too few, (c) dividing by zero.</li>
+</ol>
+<h2 id="practice-1"><a class="header" href="#practice-1">Practice</a></h2>
+<p>See <code>Whitespace_Empty_Lines.java</code> and <code>Whitespace_Empty_Spaces.java</code> for examples of formatting that has no effect on execution, <code>SyntaxErrors.java</code> for examples of syntax errors (commented out so the file compiles – uncomment one at a time to see each error), and <code>RuntimeErrors.java</code> for a runtime error you can trigger by running the file as-is.</p>
+<h2 id="ai-use-disclosure-1"><a class="header" href="#ai-use-disclosure-1">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Sonnet 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="java-variables"><a class="header" href="#java-variables">Java Variables</a></h1>
+<p><a href="../../Slides/T03Variables/IntroToVariables.html">Slides for this topic</a></p>
+<h2 id="introduction-to-variables"><a class="header" href="#introduction-to-variables">Introduction to Variables</a></h2>
+<p>Imagine a machine on a shop floor. It has a cycle time (<code>12.4</code> seconds), a batch size (<code>250</code> units), a pass/fail inspection result, and an operator ID (<code>OP-1042</code>). To write a program about that machine, you need a way to store each of those pieces of information – that’s what a <strong>variable</strong> is: a mechanism to store data (information) so a program can use it later.</p>
+<p>In Java, every variable has a <strong>type</strong>, specified by the developer based on what kind of information is being stored, and a <strong>name</strong>, used to refer to it in code. The table below lists the most common types used in this course.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Declaration</th><th>Sample values</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td><code>int</code></td><td><code>-5</code>, <code>0</code>, <code>78</code>, <code>365</code></td><td>Cannot contain decimals or characters</td></tr>
+<tr><td>Float</td><td><code>float</code></td><td><code>0.36f</code>, <code>1.2f</code>, <code>-578.333f</code></td><td>Cannot contain characters; needs an <code>f</code> suffix</td></tr>
+<tr><td>Double</td><td><code>double</code></td><td><code>74.0</code>, <code>69.3</code>, <code>-0.7</code></td><td>Cannot contain characters; default type for decimals</td></tr>
+<tr><td>Character</td><td><code>char</code></td><td><code>'a'</code>, <code>'4'</code>, <code>'='</code>, <code>'@'</code></td><td>Exactly one character, single quotes <code>' '</code></td></tr>
+<tr><td>String</td><td><code>String</code></td><td><code>"down"</code>, <code>"145a7w8"</code>, <code>"@Esa38"</code></td><td>A sequence of characters, double quotes <code>" "</code></td></tr>
+<tr><td>Boolean</td><td><code>boolean</code></td><td><code>true</code>, <code>false</code></td><td>Only the literals <code>true</code>/<code>false</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>For the shop-floor example above: cycle time is a <code>double</code>, batch size is an <code>int</code>, the pass/fail result is a <code>boolean</code>, and the operator ID is a <code>String</code>.</p>
+<h3 id="a-careful-note-on-boolean"><a class="header" href="#a-careful-note-on-boolean">A Careful Note on Boolean</a></h3>
+<p>Java boolean literals are <strong>only</strong> <code>true</code> and <code>false</code> – written in lowercase, with no quotes. Unlike some other languages, Java does <strong>not</strong> accept <code>1</code>/<code>0</code> as booleans, and unlike Python, it does <strong>not</strong> accept the capitalized <code>True</code>/<code>False</code>.</p>
+<pre><code class="language-java">boolean flag = true;   // correct
+boolean flag = 1;      // compile error
+boolean flag = True;   // compile error -- that's Python, not Java
+</code></pre>
+<h3 id="other-numeric-types"><a class="header" href="#other-numeric-types">Other Numeric Types</a></h3>
+<p>Beyond <code>int</code>, <code>float</code>, and <code>double</code>, Java has a few other numeric primitive types you will encounter in other people’s code:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Size</th><th>Typical use</th></tr>
+</thead>
+<tbody>
+<tr><td><code>byte</code></td><td>8-bit</td><td>Very small numbers, memory-constrained arrays</td></tr>
+<tr><td><code>short</code></td><td>16-bit</td><td>Rarely used directly</td></tr>
+<tr><td><code>long</code></td><td>64-bit</td><td>Whole numbers larger than <code>int</code> can hold</td></tr>
+</tbody>
+</table>
+</div>
+<p>This course will primarily use <code>int</code>, <code>double</code>, <code>char</code>, <code>String</code>, and <code>boolean</code>.</p>
+<h3 id="why-so-many-numeric-types"><a class="header" href="#why-so-many-numeric-types">Why So Many Numeric Types?</a></h3>
+<p>Each numeric type trades off <strong>range</strong> and <strong>precision</strong> against <strong>memory</strong>. An <code>int</code> is a 32-bit signed integer, capable of representing whole numbers from about −2.1 billion to 2.1 billion, but it cannot store a fractional value. A <code>float</code> is a 32-bit, single-precision floating-point value; a <code>double</code> is a 64-bit, double-precision floating-point value, generally the default choice for decimal numbers because it is more precise than a <code>float</code>.</p>
+<p>As a rule of thumb for this course: use <code>int</code> for counts (batch size, number of defects) and <code>double</code> for measurements (cycle time, weight, cost).</p>
+<h2 id="declaring-and-initializing-variables"><a class="header" href="#declaring-and-initializing-variables">Declaring and Initializing Variables</a></h2>
+<p>There are two steps to creating a variable: (i) declare the variable and (ii) initialize the variable.</p>
+<h3 id="declaring-variables"><a class="header" href="#declaring-variables">Declaring Variables</a></h3>
+<p>For a variable to be declared, it needs a specified name and type. The general syntax is:</p>
+<pre><code class="language-java">variable_type variable_name;
+</code></pre>
+<p>For example, the following block of code declares two variables, <code>x</code> and <code>y</code>. Variable <code>x</code> is a primitive <code>int</code> type; variable <code>y</code> is a <code>char</code> type.</p>
+<pre><code class="language-java">int x;    // declaration of an integer type variable
+char y;   // declaration of a char type variable
+</code></pre>
+<h3 id="naming-rules"><a class="header" href="#naming-rules">Naming Rules</a></h3>
+<p>A variable name must start with a letter, an underscore (<code>_</code>), or a dollar sign (<code>$</code>) – never a digit – and may contain only letters, digits, underscores, and dollar signs after that. A variable name cannot be a reserved word (<code>int</code>, <code>class</code>, <code>public</code>, and so on), and Java is case-sensitive, so <code>total</code> and <code>Total</code> are two different variables.</p>
+<p>By convention, Java variable names use <code>camelCase</code>: the first word lowercase, each subsequent word capitalized, with no spaces or underscores – for example <code>batchSize</code> or <code>cycleTime</code>.</p>
+<p><em>Check yourself:</em> which of the following are legal Java variable names, and which follow Java naming convention: <code>1stPlace</code>, <code>first place</code>, <code>int</code>, <code>firstPlace</code>, <code>_temp</code>?</p>
+<h3 id="initializing-variables"><a class="header" href="#initializing-variables">Initializing Variables</a></h3>
+<p>Once declared, a variable should be initialized – given a value to store. The general syntax to initialize a variable that has already been declared is:</p>
+<pre><code class="language-java">variable_name = value;
+</code></pre>
+<p>For example, the following code initializes <code>x</code> to <code>0</code> and <code>y</code> to <code>'A'</code>. Note that the declaration of <code>x</code> and <code>y</code> is omitted here, but must have already happened before this initialization step.</p>
+<pre><code class="language-java">x = 0;      // initialize the int x to 0
+y = 'A';    // initialize char y to 'A'
+</code></pre>
+<p>It is common for declaration and initialization to happen in a single line. For example, in the code below, <code>s</code>, <code>batchSize</code>, and <code>cycleTime</code> are each declared and initialized in one step.</p>
+<pre><code class="language-java">String s = "Example Text";
+int batchSize = 250;
+double cycleTime = 12.4;
+</code></pre>
+<h3 id="why-float-literals-need-an-f"><a class="header" href="#why-float-literals-need-an-f">Why <code>float</code> Literals Need an <code>f</code></a></h3>
+<p>In Java, a plain decimal literal such as <code>3.14</code> is treated as a <code>double</code> by default. Assigning it directly to a <code>float</code> variable is a type mismatch:</p>
+<pre><code class="language-java">float pi = 3.14;    // compile error: double cannot be converted to float
+float pi = 3.14f;   // correct: the f suffix marks this literal as a float
+</code></pre>
+<p><code>double</code> never needs a suffix, because it is already Java’s default type for decimal literals.</p>
+<h2 id="constants"><a class="header" href="#constants">Constants</a></h2>
+<p>There are often scenarios in which a variable should retain the same value throughout a program – in these cases, it is appropriate to declare the variable as a <strong>constant</strong>. A constant variable cannot be changed after it is initialized. The general format to declare a constant is to add the keyword <code>final</code> before the type:</p>
+<pre><code class="language-java">final type variableName = value;
+</code></pre>
+<p>By convention, constant names are written in <code>ALL_CAPS_WITH_UNDERSCORES</code>. Consider the following code, which repeats a “magic number”:</p>
+<pre><code class="language-java">double area1 = 3.14159 * radius1 * radius1;
+double area2 = 3.14159 * radius2 * radius2;
+double area3 = 3.14159 * radius3 * radius3;
+</code></pre>
+<p>If that value ever needed to change, or simply to make the code more readable, it is better written as:</p>
+<pre><code class="language-java">final double PI_VALUE = 3.14159;
+
+double area1 = PI_VALUE * radius1 * radius1;
+double area2 = PI_VALUE * radius2 * radius2;
+double area3 = PI_VALUE * radius3 * radius3;
+</code></pre>
+<h2 id="assignment-operator"><a class="header" href="#assignment-operator">Assignment Operator</a></h2>
+<p>In the initialization step discussed above, the <code>=</code> operator was used to assign a value to a declared variable. For this reason, <code>=</code> is commonly referred to as the <strong>assignment operator</strong>. It is used to assign values to variables, whether those values come from user input, an input file, or the result of an expression, as shown below.</p>
+<pre><code class="language-java">double p;
+double length = 2.2;   // assignment operator used to initialize length to 2.2
+double width = 3.1;    // assignment operator used to initialize width to 3.1
+p = 2 * width + 2 * length;  // assign expression calculating perimeter of rectangle to p
+</code></pre>
+<p>It is important to note that <code>=</code> does not represent mathematical equality. This is a common mistake for students new to Java.</p>
+<p>When assigning a value to a variable, only a single variable may appear on the left-hand side of <code>=</code>. The following would produce an error:</p>
+<pre><code class="language-java">int z;
+int v;
+z + v = 3;   // this would produce an error
+</code></pre>
+<h2 id="displaying-whats-inside-a-variable"><a class="header" href="#displaying-whats-inside-a-variable">Displaying What’s Inside a Variable</a></h2>
+<p>Declaring and initializing a variable doesn’t, by itself, show you anything – you have to print it. The <code>+</code> operator, when used with a <code>String</code>, joins (“concatenates”) text and a variable’s value into a single <code>String</code> for output.</p>
+<pre><code class="language-java">double cycleTime = 12.4;
+System.out.println("Cycle time: " + cycleTime);
+</code></pre>
+<pre><code>Cycle time: 12.4
+</code></pre>
+<h2 id="failing-to-initialize-a-variable"><a class="header" href="#failing-to-initialize-a-variable">Failing to Initialize a Variable</a></h2>
+<p>Failure to initialize a local variable before using it in an expression will cause a compile-time error – Java does <strong>not</strong> give local variables an automatic default value. (This differs from fields of a class, which do get default values; that distinction will matter once we introduce classes later in the course.)</p>
+<p>Consider the following example, and assume that <code>a</code>, <code>b</code>, and <code>c</code> have all been declared:</p>
+<pre><code class="language-java">b = 8;
+a = b + 7;    // this works because b has been initialized
+a = 19 + c;   // this produces an error because c has not been initialized
+</code></pre>
+<p>Attempting to compile the second assignment produces an error along these lines:</p>
+<pre><code>error: variable c might not have been initialized
+        a = 19 + c;
+                 ^
+</code></pre>
+<p>Reading and understanding compiler errors like this one is a skill you will use constantly throughout this course – the error message tells you exactly which variable is the problem and why.</p>
+<h2 id="check-your-understanding-2"><a class="header" href="#check-your-understanding-2">Check Your Understanding</a></h2>
+<ol>
+<li>What Java type would you use to store: a part count, a machine’s cycle time, whether a part passed inspection, and an operator’s badge ID?</li>
+<li>Why does <code>float pi = 3.14;</code> fail to compile, while <code>double pi = 3.14;</code> works fine?</li>
+<li>Is <code>boolean done = 1;</code> legal in Java? Why or why not?</li>
+<li>Which of these are legal variable names: <code>1stPlace</code>, <code>first place</code>, <code>int</code>, <code>firstPlace</code>, <code>_temp</code>?</li>
+<li>Why might you prefer a <code>final</code> constant over repeating the same literal value throughout a program?</li>
+</ol>
+<h2 id="practice-2"><a class="header" href="#practice-2">Practice</a></h2>
+<p>See <code>IntroToVariables.java</code> for a worked example of each type discussed above, and <code>VariablesPractice.java</code> for a short hands-on exercise declaring each type yourself.</p>
+<h2 id="ai-use-disclosure-2"><a class="header" href="#ai-use-disclosure-2">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Sonnet 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="keyboard-input-and-console-output"><a class="header" href="#keyboard-input-and-console-output">Keyboard Input and Console Output</a></h1>
+<p><a href="../../Slides/T04KeyboardInputConsoleOutput/KeyboardInputConsoleOutput.html">Slides for this topic</a></p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>A quality inspector needs your program to collect three things during a shift: their operator ID (a <code>String</code>), how many parts they inspected (an <code>int</code>), and whether the batch passed (a <code>boolean</code>). We already know how to store these values in variables – but a program is not useful if it can only work with values the developer hard-codes ahead of time. It needs a way to <strong>get</strong> information from the person using it.</p>
+<p>A program can retrieve information from several sources: a keyboard, an input file (<code>.csv</code>, <code>.dat</code>, <code>.txt</code>), a database, or a user interface. In cases where only a small amount of information is needed, direct input from a keyboard is a simple approach for data entry. This chapter introduces the <code>Scanner</code> object for that purpose. Output works the same way in reverse – a program can display information to a development environment console, an output file, a database, or a user interface. This chapter covers formatting and displaying information to the console; file input/output, user interfaces, and databases are covered in later chapters.</p>
+<h2 id="keyboard-input-via-the-scanner-object"><a class="header" href="#keyboard-input-via-the-scanner-object">Keyboard Input via the Scanner Object</a></h2>
+<h3 id="a-new-kind-of-statement-import"><a class="header" href="#a-new-kind-of-statement-import">A New Kind of Statement: import</a></h3>
+<p>Later chapters introduce the idea of a Java class and Java object in detail. For now, it is enough to think of a Java object as a programming entity with attributes and capabilities. Sometimes you will create your own objects; other times, like today, you will use objects that other Java developers have already written and made available through libraries.</p>
+<p><code>Scanner</code> is one such object, and it lives in a Java package called <code>java.util</code> – not in your file by default. To use it, you have to tell Java where to find it with an <code>import</code> statement at the very top of your file, before the <code>public class</code> line:</p>
+<pre><code class="language-java">import java.util.Scanner;
+
+public class ScannerDemo {
+    public static void main(String[] args) {
+        ...
+</code></pre>
+<h3 id="declaring-and-initializing-a-scanner-object"><a class="header" href="#declaring-and-initializing-a-scanner-object">Declaring and Initializing a Scanner Object</a></h3>
+<p>Unlike declaring a primitive variable (<code>int</code>, <code>char</code>, <code>double</code>), creating an object requires the <code>new</code> keyword. The general syntax for declaring and initializing a <code>Scanner</code> is:</p>
+<pre><code class="language-java">Scanner name_of_Scanner_object = new Scanner(Scanner_source);
+</code></pre>
+<p>As with primitive variables, the name of the <code>Scanner</code> is chosen by the developer. <code>Scanner_source</code> specifies where the input comes from. To read from the keyboard, the source is <code>System.in</code>:</p>
+<pre><code class="language-java">Scanner scnr = new Scanner(System.in);
+</code></pre>
+<h3 id="reading-input"><a class="header" href="#reading-input">Reading Input</a></h3>
+<p>A <code>Scanner</code> object has several built-in capabilities, which in Java are called <strong>methods</strong>. A method is invoked (called to action) with the following syntax:</p>
+<pre><code class="language-java">object_name.method_name();
+</code></pre>
+<p><code>object_name</code> is the name you gave your <code>Scanner</code>. <code>method_name</code> is one of the capabilities that comes with the <code>Scanner</code> class. The following is a list of common <code>Scanner</code> methods:</p>
+<ul>
+<li><code>next()</code>: returns the next token as a <code>String</code></li>
+<li><code>nextInt()</code>: returns the next token as an <code>int</code></li>
+<li><code>nextDouble()</code>: returns the next token as a <code>double</code></li>
+<li><code>nextFloat()</code>: returns the next token as a <code>float</code></li>
+<li><code>nextBoolean()</code>: returns the next token as a <code>boolean</code></li>
+<li><code>nextLine()</code>: returns the rest of the current line, as a <code>String</code></li>
+</ul>
+<p><code>next()</code> and the <code>nextX()</code> methods stop reading at the next whitespace (a space or a newline). <code>nextLine()</code> is different – it reads everything up to the next newline character, including spaces.</p>
+<p>A complete example of reading a line of text from the keyboard:</p>
+<pre><code class="language-java">Scanner scnr = new Scanner(System.in);   // defining the scanner
+String exampleText;                      // stores the line of text read from the user
+
+exampleText = scnr.nextLine();           // reads up to the newline character
+
+scnr.close();
+</code></pre>
+<p>Always close a <code>Scanner</code> once you are done reading input, by calling <code>scnr.close()</code>.</p>
+<h3 id="reading-multiple-values-on-one-line"><a class="header" href="#reading-multiple-values-on-one-line">Reading Multiple Values on One Line</a></h3>
+<p>You are not limited to one value per <code>Scanner</code> call per line. If a user types several values separated by spaces on the same line, each <code>Scanner</code> method call reads the next token in order:</p>
+<pre><code class="language-java">// user types: 250 true
+int batchSize = scnr.nextInt();      // reads 250
+boolean passed = scnr.nextBoolean(); // reads true
+</code></pre>
+<p>Each call picks up exactly where the previous one left off.</p>
+<h3 id="the-nextint--nextline-trap"><a class="header" href="#the-nextint--nextline-trap">The nextInt() + nextLine() Trap</a></h3>
+<p><code>nextInt()</code> (and the other <code>nextX()</code> methods) stop reading as soon as they find the value they need – they do <strong>not</strong> consume the newline character left behind when the user presses Enter. If you call <code>nextLine()</code> immediately after <code>nextInt()</code>, that call reads the leftover, empty newline instead of waiting for the user to type a new line:</p>
+<pre><code class="language-java">int batchSize = scnr.nextInt();   // user types: 250 [enter]
+String note = scnr.nextLine();    // reads the LEFTOVER newline -- an empty string!
+</code></pre>
+<p>The program will appear to skip your input entirely. This is one of the most common <code>Scanner</code> bugs. The fix is to consume the leftover newline with an extra <code>scnr.nextLine();</code> call before reading the next real line of input.</p>
+<h3 id="when-types-dont-match"><a class="header" href="#when-types-dont-match">When Types Don’t Match</a></h3>
+<p>The most common error when gathering keyboard input is the user providing data that isn’t the type being asked for. Consider reading a boolean:</p>
+<pre><code class="language-java">boolean passed = scnr.nextBoolean();
+</code></pre>
+<p>If the user types <code>true</code>, <code>false</code>, <code>1</code>, or <code>0</code>, this works without issue. But if the user types something else – say, <code>3.5</code> – the program stops immediately with a <strong>runtime error</strong>, the same general category of error as the divide-by-zero example from earlier this semester: something that only shows up once the program is actually running, rather than at compile time.</p>
+<h2 id="console-output"><a class="header" href="#console-output">Console Output</a></h2>
+<h3 id="print-vs-println"><a class="header" href="#print-vs-println">print vs println</a></h3>
+<p>A quick and simple way to display output is the console. In IntelliJ, output appears in the Run window, typically in the lower-left portion of the IDE (use <strong>View &gt; Tool Windows &gt; Run</strong> if it isn’t visible). Displaying information to the screen is done with one of the following:</p>
+<pre><code class="language-java">System.out.print(info_to_display);
+System.out.println(info_to_display);
+</code></pre>
+<p>The only difference is that <code>println</code> adds a newline character after the output, and <code>print</code> does not. For example:</p>
+<pre><code class="language-java">System.out.print("Computing");
+System.out.print("Methods");
+</code></pre>
+<p>prints <code>ComputingMethods</code> on a single line, with no space or break between the two calls, while the same two calls using <code>println</code> would print each word on its own line.</p>
+<h3 id="formatting-output-with-printf"><a class="header" href="#formatting-output-with-printf">Formatting Output with printf</a></h3>
+<p>The <code>printf</code> method works like <code>print</code>, but gives you control over exactly how information is displayed. The general syntax is:</p>
+<pre><code class="language-java">System.out.printf("%conversion_character", output);
+</code></pre>
+<p>The format is controlled by the conversion character associated with the type of information being displayed. The three conversion characters used in this course are:</p>
+<ul>
+<li><code>s</code>: formats <code>String</code> values</li>
+<li><code>d</code>: formats <code>int</code> values</li>
+<li><code>f</code>: formats floating-point (<code>float</code> or <code>double</code>) values</li>
+</ul>
+<p>Additional resource information on the use of <code>printf</code> can be found <a href="https://www.baeldung.com/java-printstream-printf">here</a>.</p>
+<h4 id="formatting-strings"><a class="header" href="#formatting-strings">Formatting Strings</a></h4>
+<p>A basic string is formatted as follows, with additional characters and spaces added before or after the <code>%s</code> conversion character as needed:</p>
+<pre><code class="language-java">System.out.printf("%s!", "Happy");
+</code></pre>
+<pre><code>Happy!
+</code></pre>
+<p><code>printf</code> does not add a newline automatically the way <code>println</code> does. Use <code>%n</code> in the format string to add one:</p>
+<pre><code class="language-java">System.out.printf("%s%n%s*", "Abraham", "Lincoln");
+</code></pre>
+<pre><code>Abraham
+Lincoln*
+</code></pre>
+<p>Two <code>String</code> arguments are supplied here, matching the two <code>%s</code> conversion characters in the format string.</p>
+<h4 id="formatting-integers"><a class="header" href="#formatting-integers">Formatting Integers</a></h4>
+<p>Integer values are formatted with <code>%d</code>:</p>
+<pre><code class="language-java">int batchSize = 250;
+System.out.printf("Batch size: %d%n", batchSize);
+</code></pre>
+<pre><code>Batch size: 250
+</code></pre>
+<h4 id="formatting-floating-point-numbers"><a class="header" href="#formatting-floating-point-numbers">Formatting Floating-Point Numbers</a></h4>
+<p>To format a floating-point value with a fixed number of decimal places, use <code>%.Xf</code>, where <code>X</code> is the number of decimal places:</p>
+<pre><code class="language-java">System.out.printf("%.Xf", floating_point_value);
+</code></pre>
+<p>Values are <strong>rounded</strong>, not truncated, to fit the requested number of decimal places. For example:</p>
+<pre><code class="language-java">System.out.printf("%.3f", 8.79253);
+</code></pre>
+<pre><code>8.793
+</code></pre>
+<h2 id="check-your-understanding-3"><a class="header" href="#check-your-understanding-3">Check Your Understanding</a></h2>
+<ol>
+<li>Why does a Java file need <code>import java.util.Scanner;</code> at the top, when it doesn’t need an import to use <code>int</code> or <code>String</code>?</li>
+<li>What’s the difference between what <code>next()</code> and <code>nextLine()</code> each read?</li>
+<li>A program calls <code>scnr.nextInt()</code> and then immediately <code>scnr.nextLine()</code>. What does the second call actually read, and why?</li>
+<li>Is a <code>Scanner</code> type mismatch (e.g. typing <code>3.5</code> when a <code>boolean</code> is expected) a compile-time error or a runtime error? How is that different from a missing semicolon?</li>
+<li>What does <code>System.out.printf("%.2f", 3.14159)</code> print?</li>
+</ol>
+<h2 id="practice-3"><a class="header" href="#practice-3">Practice</a></h2>
+<p>Open <code>Output.java</code> and <code>Formatting.java</code> to see console output and <code>printf</code> in action.</p>
+<p>Then try <code>ScannerDemo.java</code> – run it, enter valid input, then run it again and break it on purpose.</p>
+<h2 id="ai-use-disclosure-3"><a class="header" href="#ai-use-disclosure-3">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Sonnet 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="strings"><a class="header" href="#strings">Strings</a></h1>
+<p><a href="../../Slides/T05Strings/Strings.html">Slides for this topic</a></p>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<p>In the previous chapter, a quality inspector typed three things at the keyboard: an operator ID (<code>OP-1042</code>), a part number (<code>AR-4471-B</code>), and an answer to whether the batch passed (<code>pass</code>). Reading that text into a program is only the first step. The plant actually wants answers to questions buried inside it: which facility produced the part, which lot it belongs to, and whether the operator’s answer should count as a pass when they happened to type <code>PASS</code> instead of <code>pass</code>.</p>
+<p>Answering those questions requires working with text rather than merely storing it. This chapter introduces the <code>String</code> – the Java type that holds text – along with the methods used to measure it, pull pieces out of it, clean it up, and compare it to something else.</p>
+<h2 id="creating-string-objects"><a class="header" href="#creating-string-objects">Creating String Objects</a></h2>
+<p>A <code>String</code> in Java is defined as a sequence of characters. <code>"AR-4471-B"</code>, <code>"pass"</code>, <code>"z"</code>, and even the empty <code>""</code> are all Strings. Note that double quotes create a <code>String</code>, while single quotes create a <code>char</code>:</p>
+<pre><code class="language-java">String revision = "B";        // a String that happens to be one character long
+char revisionChar = 'B';      // a char
+</code></pre>
+<p>Unlike the primitive variables of earlier chapters, a <code>String</code> is an <strong>object</strong>, created from the <code>String</code> class included with the JDK. The distinction matters for a practical reason: primitives hold a value and nothing more, while objects carry <strong>methods</strong> – built-in capabilities reached with a dot, exactly like the <code>Scanner</code> methods of the previous chapter.</p>
+<pre><code class="language-java">int lotSize = 250;
+lotSize.length();             // no such thing -- primitives have no methods
+
+String partNumber = "AR-4471-B";
+partNumber.length();          // 9
+</code></pre>
+<h3 id="declaring-and-initializing"><a class="header" href="#declaring-and-initializing">Declaring and Initializing</a></h3>
+<p>A <code>String</code> object can be declared and initialized like any other object, using the <code>new</code> keyword:</p>
+<pre><code class="language-java">String partNumberA = new String("AR-4471-B");
+</code></pre>
+<p>However, <code>String</code> is one of the few object types in Java that can also be created without <code>new</code>:</p>
+<pre><code class="language-java">String partNumberB = "AR-4471-B";
+</code></pre>
+<p>The second form is the standard used by an overwhelming majority of developers, and it is the form used throughout this course. Note also that <code>String</code> requires no <code>import</code> statement. Unlike <code>Scanner</code>, which had to be imported from <code>java.util</code>, <code>String</code> is always available.</p>
+<p>A <code>String</code> can be initialized in code as shown above, or read from the user with a <code>Scanner</code>, using either <code>next()</code> or <code>nextLine()</code>.</p>
+<h3 id="strings-are-indexed-from-zero"><a class="header" href="#strings-are-indexed-from-zero">Strings Are Indexed From Zero</a></h3>
+<p>Each character in a <code>String</code> has a numbered position, called its <strong>index</strong>. Indexing begins at 0:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+</thead>
+<tbody>
+<tr><td>Character</td><td><code>A</code></td><td><code>R</code></td><td><code>-</code></td><td><code>4</code></td><td><code>4</code></td><td><code>7</code></td><td><code>1</code></td><td><code>-</code></td><td><code>B</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>The part number <code>"AR-4471-B"</code> contains nine characters, so its length is 9 – but its last valid index is 8. Nearly every error made with Strings traces back to this single off-by-one distinction, so it is worth committing to memory now: <strong>the last character of a String is always at index <code>length() - 1</code>.</strong></p>
+<h2 id="inspecting-a-string"><a class="header" href="#inspecting-a-string">Inspecting a String</a></h2>
+<h3 id="length"><a class="header" href="#length">length()</a></h3>
+<p>The <code>length()</code> method takes no argument and returns an <code>int</code>: the number of individual characters in the <code>String</code> that invoked it. Dashes, spaces, and punctuation all count.</p>
+<pre><code class="language-java">String partNumber = "AR-4471-B";
+System.out.println(partNumber.length());
+</code></pre>
+<pre><code>9
+</code></pre>
+<h3 id="charatint"><a class="header" href="#charatint">charAt(int)</a></h3>
+<p>The <code>charAt(int)</code> method accepts an index and returns the single <code>char</code> at that position. Because the first character is at index 0, the last character is retrieved with <code>length() - 1</code>:</p>
+<pre><code class="language-java">System.out.println(partNumber.charAt(0));                        // the plant initial
+System.out.println(partNumber.charAt(partNumber.length() - 1));  // the revision letter
+</code></pre>
+<pre><code>A
+B
+</code></pre>
+<h3 id="indexofstring"><a class="header" href="#indexofstring">indexOf(String)</a></h3>
+<p>The <code>indexOf(String)</code> method searches for the text passed to it and returns an <code>int</code>: the index where the first match begins. If the text does not appear anywhere in the <code>String</code>, the method returns <code>-1</code>.</p>
+<pre><code class="language-java">System.out.println(partNumber.indexOf("-"));      // first dash
+System.out.println(partNumber.indexOf("4471"));   // start of the lot number
+System.out.println(partNumber.indexOf("Z"));      // not present
+</code></pre>
+<pre><code>2
+3
+-1
+</code></pre>
+<p>The <code>-1</code> is a legitimate return value meaning “not found,” not an error. The program keeps running.</p>
+<h3 id="containsstring-and-isempty"><a class="header" href="#containsstring-and-isempty">contains(String) and isEmpty()</a></h3>
+<p>Sometimes the position does not matter and only the yes-or-no answer does. <code>contains(String)</code> returns a <code>boolean</code> indicating whether the text appears at all, and <code>isEmpty()</code> returns <code>true</code> only when the <code>String</code> has a length of 0:</p>
+<pre><code class="language-java">System.out.println(partNumber.contains("4471"));   // true
+System.out.println(partNumber.contains("Z"));      // false
+
+String operatorNote = "";
+System.out.println(operatorNote.isEmpty());        // true
+System.out.println(partNumber.isEmpty());          // false
+</code></pre>
+<h2 id="extracting-part-of-a-string"><a class="header" href="#extracting-part-of-a-string">Extracting Part of a String</a></h2>
+<h3 id="substringint"><a class="header" href="#substringint">substring(int)</a></h3>
+<p>The <code>substring</code> method creates a new <code>String</code> by extracting a set of consecutive characters. The single-argument variant accepts one <code>int</code>, the <code>beginIndex</code>, and returns the character at that index along with everything after it. All prior characters are left out.</p>
+<pre><code class="language-java">String partNumber = "AR-4471-B";
+System.out.println(partNumber.substring(3));
+</code></pre>
+<pre><code>4471-B
+</code></pre>
+<h3 id="substringint-int"><a class="header" href="#substringint-int">substring(int, int)</a></h3>
+<p>The two-argument variant accepts a <code>beginIndex</code> and an <code>endIndex</code>. The extraction <strong>stops before</strong> <code>endIndex</code>, meaning the last character included sits at <code>endIndex - 1</code>. This is the detail that catches most people:</p>
+<pre><code class="language-java">String plantCode = partNumber.substring(0, 2);   // indexes 0 and 1
+String lotNumber = partNumber.substring(3, 7);   // indexes 3 through 6
+
+System.out.println(plantCode);
+System.out.println(lotNumber);
+</code></pre>
+<pre><code>AR
+4471
+</code></pre>
+<p>In the first call, <code>A</code> (index 0) and <code>R</code> (index 1) are included, and the dash at index 2 is not. In the second, the four digits at indexes 3, 4, 5, and 6 are included, and the dash at index 7 is not.</p>
+<h3 id="when-an-index-is-out-of-bounds"><a class="header" href="#when-an-index-is-out-of-bounds">When an Index Is Out of Bounds</a></h3>
+<p>Both <code>charAt</code> and <code>substring</code> fail if handed an index that does not exist in the <code>String</code>. Because <code>"AR-4471-B"</code> has a length of 9, index 9 is one position past the end:</p>
+<pre><code class="language-java">partNumber.charAt(9);
+partNumber.substring(3, 20);
+</code></pre>
+<pre><code>StringIndexOutOfBoundsException: Index 9 out of bounds for length 9
+StringIndexOutOfBoundsException: Range [3, 20) out of bounds for length 9
+</code></pre>
+<p>Both are <strong>runtime errors</strong> – the same general category as the divide-by-zero example and the <code>Scanner</code> type mismatch from previous chapters. The code compiles without complaint; the failure only appears once the program runs and reaches that line.</p>
+<h2 id="strings-are-immutable"><a class="header" href="#strings-are-immutable">Strings Are Immutable</a></h2>
+<p>Every method described in this chapter shares a property that is easy to miss and important to understand: <strong>a <code>String</code> cannot be changed after it is created.</strong> Methods like <code>substring</code>, <code>trim</code>, and <code>toUpperCase</code> do not modify the <code>String</code> that invoked them. They build and return a brand-new <code>String</code>, leaving the original exactly as it was.</p>
+<pre><code class="language-java">String entry = "  pass  ";
+
+entry.trim();                 // returns "pass" -- and that value is discarded
+System.out.println(entry);    // still "  pass  "
+</code></pre>
+<p>The returned value is the entire point of calling the method. If it is not stored in a variable or used immediately, the work is thrown away and the program appears to do nothing at all. To keep a result, assign it:</p>
+<pre><code class="language-java">String cleaned = entry.trim();
+System.out.println(cleaned);
+</code></pre>
+<pre><code>pass
+</code></pre>
+<h3 id="concatstring-and-the--operator"><a class="header" href="#concatstring-and-the--operator">concat(String) and the + Operator</a></h3>
+<p>The <code>concat(String)</code> method joins two Strings, accepting a single <code>String</code> and adding it to the end of the <code>String</code> that invoked the method. It does the same job as the <code>+</code> operator introduced earlier:</p>
+<pre><code class="language-java">String plant = "AR";
+String lot = "4471";
+
+System.out.println(plant.concat(lot));   // same result as plant + lot
+</code></pre>
+<pre><code>AR4471
+</code></pre>
+<p>In practice, <code>+</code> is what developers reach for, and <code>concat</code> is worth knowing mostly because it demonstrates immutability so plainly. The call above produces <code>AR4471</code>, but the variable <code>plant</code> is untouched:</p>
+<pre><code class="language-java">System.out.println(plant);
+</code></pre>
+<pre><code>AR
+</code></pre>
+<h2 id="transforming-a-string"><a class="header" href="#transforming-a-string">Transforming a String</a></h2>
+<h3 id="touppercase-and-tolowercase"><a class="header" href="#touppercase-and-tolowercase">toUpperCase() and toLowerCase()</a></h3>
+<p>Neither method takes an argument, and both return a new <code>String</code> with the case of every letter converted:</p>
+<pre><code class="language-java">System.out.println("pass".toUpperCase());
+System.out.println("PASS".toLowerCase());
+</code></pre>
+<pre><code>PASS
+pass
+</code></pre>
+<p>These are most useful when a program cannot control how a user typed something. Converting both sides of a comparison to the same case is one way to make an entry like <code>Pass</code> match an expected value of <code>pass</code>.</p>
+<h3 id="trim"><a class="header" href="#trim">trim()</a></h3>
+<p>The <code>trim()</code> method returns a new <code>String</code> with whitespace – spaces, tabs, and newline characters – removed from <strong>both ends</strong>. Whitespace in the middle is left alone:</p>
+<pre><code class="language-java">String entry = "  pass  ";
+System.out.println("[" + entry.trim() + "]");
+</code></pre>
+<pre><code>[pass]
+</code></pre>
+<p>The brackets are a debugging habit worth adopting. Leading and trailing spaces are invisible in console output, so printing a bracket on either side of a value makes it obvious whether whitespace is present. Trimming keyboard input before working with it prevents a whole category of confusing bugs.</p>
+<h3 id="replacestring-string"><a class="header" href="#replacestring-string">replace(String, String)</a></h3>
+<p>The <code>replace</code> method returns a new <code>String</code> in which <strong>every</strong> occurrence of the first argument has been swapped for the second:</p>
+<pre><code class="language-java">String partNumber = "AR-4471-B";
+
+System.out.println(partNumber.replace("-", ""));
+System.out.println(partNumber);
+</code></pre>
+<pre><code>AR4471B
+AR-4471-B
+</code></pre>
+<p>Every dash is removed from the returned value, and – consistent with immutability – the original <code>partNumber</code> still contains all of them.</p>
+<h3 id="chaining-method-calls"><a class="header" href="#chaining-method-calls">Chaining Method Calls</a></h3>
+<p>Because these methods return a <code>String</code>, another <code>String</code> method can be called directly on the result. This is called <strong>chaining</strong>, and it reads left to right:</p>
+<pre><code class="language-java">String cleaned = entry.trim().toUpperCase();
+</code></pre>
+<p><code>trim()</code> runs first and produces <code>"pass"</code>. <code>toUpperCase()</code> is then invoked on that result, producing <code>"PASS"</code>, which is what gets stored in <code>cleaned</code>. Chaining is convenient, but each link still follows the same rule: nothing is modified in place, and the final result must be stored to be useful.</p>
+<h2 id="comparing-strings"><a class="header" href="#comparing-strings">Comparing Strings</a></h2>
+<h3 id="why--is-not-what-you-want"><a class="header" href="#why--is-not-what-you-want">Why == Is Not What You Want</a></h3>
+<p>Checking whether two Strings hold the same text seems like a job for <code>==</code>, the way it would be for two <code>int</code> values. It is not.</p>
+<pre><code class="language-java">Scanner scnr = new Scanner(System.in);
+String response = scnr.nextLine();   // the operator types: pass
+
+System.out.println(response == "pass");
+</code></pre>
+<pre><code>false
+</code></pre>
+<p>The characters match perfectly, and the answer is still <code>false</code>. This happens because <code>==</code> does not compare the <em>contents</em> of two Strings. It compares whether the two variables refer to the <strong>same object in memory</strong>. The text typed at the keyboard was built into a new object at runtime; the <code>"pass"</code> written in the source code is a different object. Two different objects, so <code>==</code> reports <code>false</code>.</p>
+<p>What makes this trap genuinely dangerous is that <code>==</code> does not always answer <code>false</code>. Compare two Strings written directly in the code, and Java may reuse a single shared object behind the scenes:</p>
+<pre><code class="language-java">String a = "pass";
+String b = "pass";
+System.out.println(a == b);
+</code></pre>
+<pre><code>true
+</code></pre>
+<p>Identical comparison, identical characters, opposite answer. <code>==</code> on Strings is unpredictable, which is reason enough never to use it for this purpose. IntelliJ recognizes the mistake and will underline the comparison as a warning.</p>
+<h3 id="equalsstring"><a class="header" href="#equalsstring">equals(String)</a></h3>
+<p>The <code>equals(String)</code> method is the correct tool. It accepts a <code>String</code> and returns a <code>boolean</code>: <code>true</code> when both Strings contain exactly the same characters in the same order, and <code>false</code> otherwise. It compares contents, so it gives the same answer regardless of how the Strings were created.</p>
+<pre><code class="language-java">System.out.println(response.equals("pass"));
+</code></pre>
+<pre><code>true
+</code></pre>
+<p><strong>Compare Strings with <code>equals()</code>, never with <code>==</code>.</strong></p>
+<h3 id="equalsignorecasestring"><a class="header" href="#equalsignorecasestring">equalsIgnoreCase(String)</a></h3>
+<p><code>equals()</code> treats uppercase and lowercase letters as different characters, which is usually correct but not always what a program needs. An inspector answering a prompt may reasonably type <code>pass</code>, <code>PASS</code>, or <code>Pass</code>, and all three should count the same. The <code>equalsIgnoreCase(String)</code> method performs the same comparison while treating case as irrelevant:</p>
+<pre><code class="language-java">System.out.println("PASS".equals("pass"));
+System.out.println("PASS".equalsIgnoreCase("pass"));
+</code></pre>
+<pre><code>false
+true
+</code></pre>
+<p>Combined with <code>trim()</code>, this handles most of the messiness of real keyboard input:</p>
+<pre><code class="language-java">String response = "  PASS  ";
+System.out.println(response.trim().equalsIgnoreCase("pass"));
+</code></pre>
+<pre><code>true
+</code></pre>
+<p>Note that <code>equals()</code> and <code>equalsIgnoreCase()</code> answer the question <em>are these the same?</em> A related question – <em>which of these comes first alphabetically?</em> – becomes relevant when sorting data later in the semester, and Java provides a separate method for it at that point.</p>
+<h2 id="check-your-understanding-4"><a class="header" href="#check-your-understanding-4">Check Your Understanding</a></h2>
+<ol>
+<li>Why does a <code>String</code> variable have methods available to it when an <code>int</code> variable does not?</li>
+<li>The part number <code>"AR-4471-B"</code> has a length of 9. What is the index of its last character, and what happens if you ask for <code>charAt(9)</code>?</li>
+<li>What does <code>"AR-4471-B".substring(3, 7)</code> return, and why is the character at index 7 not included?</li>
+<li>A program calls <code>entry.trim();</code> on its own line and then prints <code>entry</code>, which still shows the original spaces. Explain why, in terms of immutability.</li>
+<li>Two Strings contain exactly the same characters, but <code>==</code> reports <code>false</code>. What is <code>==</code> actually comparing?</li>
+<li>An operator might type <code>pass</code>, <code>PASS</code>, or <code> Pass </code>. Write the single line of code that returns <code>true</code> for all three.</li>
+</ol>
+<h2 id="practice-4"><a class="header" href="#practice-4">Practice</a></h2>
+<p>Open <code>CreatingStrings.java</code>, <code>InspectingStrings.java</code>, and <code>SlicingStrings.java</code> to watch this chapter’s methods run. In <code>SlicingStrings.java</code>, uncomment the final two lines to trigger a <code>StringIndexOutOfBoundsException</code> on purpose.</p>
+<p>Then work through <code>TransformingStrings.java</code>, predicting the output of each line before running it – especially the third one.</p>
+<p>Finish with <code>EqualsTrap.java</code>. Run it, type <code>pass</code>, and make sure you can explain why the first line of output disagrees with the last one.</p>
+<h2 id="ai-use-disclosure-4"><a class="header" href="#ai-use-disclosure-4">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Opus 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="branching-with-if-else"><a class="header" href="#branching-with-if-else">Branching with if-else</a></h1>
+<p><a href="../../Slides/T06IfElse/IfElse.html">Slides for this topic</a></p>
+<h2 id="introduction-2"><a class="header" href="#introduction-2">Introduction</a></h2>
+<p>If-else statements use logical expressions to decide whether a block of code is executed or not. These conditional statements can often be thought of as: “if a condition is true, then scenario A will take place; if the condition is false, then scenario B will execute.”</p>
+<p>Every program written so far has executed every line, top to bottom, exactly once. The inspection program from the previous chapters could read an operator’s answer and clean it up, but it could not yet <em>act</em> on it. This chapter introduces the ability to choose. The sections below cover simple if-else statements, the operators used to construct logical conditions, detecting ranges of values, several errors that are easy to make and hard to see, and nested if-else statements.</p>
+<h2 id="basic-concepts"><a class="header" href="#basic-concepts">Basic Concepts</a></h2>
+<p>The use of if-else statements allows for the creation of <strong>branches</strong> within a computer program. Branches represent different paths that a program can take depending on input from the user or the result of an expression evaluated in the program.</p>
+<p>Consider the inspector’s answer from the previous chapter. If the part passed, a passed counter should increase; otherwise a failed counter should increase. The logic is:</p>
+<ul>
+<li>if the result is <code>pass</code>, increase the passed counter</li>
+<li>otherwise, increase the failed counter</li>
+</ul>
+<p>The scenario has two, and only two, distinct outcomes (branches). Only one of the branches will execute:</p>
+<pre><code class="language-java">// one counter per outcome, each initialized to zero
+int passCount = 0;
+int failCount = 0;
+
+String inspectionResult = "pass";
+
+if (inspectionResult.equals("pass")) {   // first branch: the part passed
+    passCount += 1;                      // increase passCount by 1
+}
+else {                                   // second branch: anything else
+    failCount += 1;                      // increase failCount by 1
+}
+</code></pre>
+<p>The branch executed when the result is a pass begins with the <code>if</code> keyword, and the branch executed otherwise begins with the <code>else</code> keyword. Code in the <code>else</code> block executes when the condition in the <code>if</code> statement returns <code>false</code>. This is the most common implementation when the scenario being modeled has two outcomes.</p>
+<p>Note that the two Strings are compared with the <code>equals()</code> method from the previous chapter rather than with <code>==</code>. That distinction applies inside an if-else condition exactly as it did everywhere else: <code>==</code> compares whether two variables refer to the same object, not whether they hold the same characters. A condition written as <code>inspectionResult == "pass"</code> will compile and will quietly give the wrong answer.</p>
+<p>It is worth noting that this example is easy to predict because only one part is considered. The if-else statement becomes far more powerful when there are hundreds of parts to classify, which requires the ability to iterate through many values. Loops and arrays are studied later in the semester and offer exactly that.</p>
+<h3 id="common-error-missing-braces"><a class="header" href="#common-error-missing-braces">Common Error: Missing Braces</a></h3>
+<p>A common error when implementing if-else statements is the misplacement or omission of one or both braces (<code>{</code> or <code>}</code>). Consider the following:</p>
+<pre><code class="language-java">if (defectCount &gt; 5) {
+    System.out.println("scrap");
+else
+    System.out.println("keep");
+}
+</code></pre>
+<pre><code>error: 'else' without 'if'
+</code></pre>
+<p>The <code>if</code> block is opened but never closed, so by the time the compiler reaches <code>else</code>, there is no open <code>if</code> statement for it to attach to. In general, a left (open) and a right (close) brace are needed for each <code>if</code> and <code>else</code> block in an if-else statement.</p>
+<h2 id="logical-operators"><a class="header" href="#logical-operators">Logical Operators</a></h2>
+<p>If-else statements consist of logical expressions that determine which block of code is executed. Logical conditions are composed with the logical operators available in Java. The following table summarizes the most frequently used ones.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Operator</th><th>Description</th><th>Example (assume <code>x</code> is 5)</th></tr>
+</thead>
+<tbody>
+<tr><td><code>==</code></td><td><code>a == b</code> means a is equal to b</td><td><code>x == 5</code> is true; <code>x == 20</code> is false</td></tr>
+<tr><td><code>!=</code></td><td><code>a != b</code> means a is not equal to b</td><td><code>x != 5</code> is false; <code>x != 4</code> is true</td></tr>
+<tr><td><code>&gt;</code></td><td><code>a &gt; b</code> means a is greater than b</td><td><code>x &gt; 4</code> is true; <code>x &gt; 5</code> is false</td></tr>
+<tr><td><code>&lt;</code></td><td><code>a &lt; b</code> means a is less than b</td><td><code>x &lt; 20</code> is true; <code>x &lt; 1</code> is false</td></tr>
+<tr><td><code>&gt;=</code></td><td><code>a &gt;= b</code> means a is greater than or equal to b</td><td><code>x &gt;= 5</code> is true; <code>x &gt;= 10</code> is false</td></tr>
+<tr><td><code>&lt;=</code></td><td><code>a &lt;= b</code> means a is less than or equal to b</td><td><code>x &lt;= 16</code> is true; <code>x &lt;= 2</code> is false</td></tr>
+<tr><td><code>&amp;&amp;</code></td><td>condition 1 AND condition 2 are both true</td><td><code>x == 5 &amp;&amp; x &gt; 0</code> is true; <code>x == 5 &amp;&amp; x &lt; 0</code> is false</td></tr>
+<tr><td><code>||</code></td><td>condition 1 OR condition 2 (or both) are true</td><td><code>x == 5 || x == 0</code> is true; <code>x &lt;= 2 || x == 0</code> is false</td></tr>
+<tr><td><code>!</code></td><td>reverses a condition</td><td><code>!(x == 5)</code> is false; <code>!(x == 20)</code> is true</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="additional-outcomes-in-if-else-statements"><a class="header" href="#additional-outcomes-in-if-else-statements">Additional Outcomes in if-else Statements</a></h2>
+<p>Returning to the inspection example, a part is rarely just passed or failed. A more realistic process assigns one of three dispositions: <strong>pass</strong>, <strong>rework</strong>, or <strong>scrap</strong>. The disposition is now one of three outcomes. To add a third branch, add a third block to the if-else statement using the keywords <code>else if</code>.</p>
+<pre><code class="language-java">// a third outcome means a third counter
+int passCount = 0;
+int reworkCount = 0;
+int scrapCount = 0;
+
+String disposition = "rework";
+
+if (disposition.equals("pass")) {          // first branch
+    passCount += 1;
+}
+else if (disposition.equals("rework")) {   // second branch
+    reworkCount += 1;
+}
+else {                                     // third branch: anything else
+    scrapCount += 1;
+}
+</code></pre>
+<p>Additional <code>else if</code> blocks can be added to account for any number of outcomes. Each <code>if</code> or <code>else if</code> statement must include a logical condition. The <code>else</code> portion of the implementation executes only if all of the <code>if</code> and <code>else if</code> conditions evaluate to false.</p>
+<h2 id="detecting-ranges"><a class="header" href="#detecting-ranges">Detecting Ranges</a></h2>
+<p>In practice, a disposition is usually derived from a measurement rather than a typed word. Suppose the rule is:</p>
+<ul>
+<li>0 defects: the part passes</li>
+<li>1 to 4 defects: the part is sent for rework</li>
+<li>5 or more defects: the part is scrapped</li>
+</ul>
+<p>The middle case is a <strong>range</strong>, and a range cannot be tested with a single comparison. It requires two comparisons joined with <code>&amp;&amp;</code>, which is true only when both of its sides are true:</p>
+<pre><code class="language-java">if (defectCount == 0) {
+    System.out.println("Disposition: pass");
+}
+else if (defectCount &gt;= 1 &amp;&amp; defectCount &lt;= 4) {
+    System.out.println("Disposition: rework");
+}
+else {
+    System.out.println("Disposition: scrap");
+}
+</code></pre>
+<p>The condition <code>defectCount &gt;= 1 &amp;&amp; defectCount &lt;= 4</code> is precisely the statement “between 1 and 4, inclusive.”</p>
+<h3 id="java-has-no-chained-comparison"><a class="header" href="#java-has-no-chained-comparison">Java Has No Chained Comparison</a></h3>
+<p>Mathematical notation allows a range to be written as a single chained expression, and it is natural to try the same thing in Java:</p>
+<pre><code class="language-java">if (0 &lt;= defectCount &lt;= 4) {
+</code></pre>
+<p>This does not compile:</p>
+<pre><code>error: bad operand types for binary operator '&lt;='
+  first type:  boolean
+  second type: int
+</code></pre>
+<p>The error message explains the problem precisely. Java evaluates <code>0 &lt;= defectCount</code> first, which produces a <code>boolean</code>. It then tries to compare that <code>boolean</code> to the <code>int</code> 4, and there is no meaningful way to do so. Ranges must be built with <code>&amp;&amp;</code>.</p>
+<h3 id="the-not-operator"><a class="header" href="#the-not-operator">The NOT Operator</a></h3>
+<p>The <code>!</code> operator reverses a condition, turning true into false and false into true. It is most useful when the interesting case is the one that fails a test:</p>
+<pre><code class="language-java">if (!inspectionResult.equals("pass")) {
+    System.out.println("Part did not pass; routing to review");
+}
+</code></pre>
+<p>The condition reads as “not a pass.”</p>
+<h3 id="short-circuit-evaluation"><a class="header" href="#short-circuit-evaluation">Short-Circuit Evaluation</a></h3>
+<p>When Java evaluates an <code>&amp;&amp;</code>, it stops as soon as the left side turns out to be false, because no value on the right could make the whole expression true. The right side is never evaluated at all. This behavior is called <strong>short-circuit evaluation</strong>, and it can be used deliberately as a guard:</p>
+<pre><code class="language-java">if (partsInspected != 0 &amp;&amp; defectsFound / partsInspected &gt; 2) {
+    System.out.println("Defect rate above threshold");
+}
+</code></pre>
+<p>If <code>partsInspected</code> is 0, the left side is false, and the division on the right never runs. Without that guard, this line would produce a divide-by-zero runtime error – the same error introduced back in the chapter on error types. The order of the two conditions is what makes the guard work; reversing them would divide first and crash before the check could help.</p>
+<h2 id="two-silent-bugs"><a class="header" href="#two-silent-bugs">Two Silent Bugs</a></h2>
+<p>The missing-brace error above at least stops the compiler. The two mistakes in this section are more dangerous, because the code compiles and runs while doing the wrong thing.</p>
+<h3 id="-is-not-"><a class="header" href="#-is-not-">= Is Not ==</a></h3>
+<p>A single character separates assignment from comparison:</p>
+<pre><code class="language-java">boolean batchPassed = false;
+
+if (batchPassed = true) {
+    System.out.println("branch taken");
+}
+System.out.println("batchPassed is now " + batchPassed);
+</code></pre>
+<pre><code>branch taken
+batchPassed is now true
+</code></pre>
+<p>The <code>if</code> condition used <code>=</code>, which <strong>assigns</strong>. It stored <code>true</code> in <code>batchPassed</code>, then used that stored value as the condition – so the branch runs every time, and the variable has been silently changed along the way. The comparison intended here is <code>batchPassed == true</code>.</p>
+<h3 id="the-stray-semicolon"><a class="header" href="#the-stray-semicolon">The Stray Semicolon</a></h3>
+<p>A semicolon immediately after the condition ends the <code>if</code> statement then and there:</p>
+<pre><code class="language-java">int defectCount = 0;
+
+if (defectCount &gt; 5);
+{
+    System.out.println("scrapped a part with 0 defects");
+}
+</code></pre>
+<pre><code>scrapped a part with 0 defects
+</code></pre>
+<p>The block in braces is no longer attached to the <code>if</code> at all. It is simply the next thing the program does, so it runs unconditionally. A part with zero defects was scrapped, and nothing in the output suggests why.</p>
+<h2 id="nested-if-else-statements"><a class="header" href="#nested-if-else-statements">Nested if-else Statements</a></h2>
+<p>Implementations often call for multiple logical conditions to be evaluated before an outcome is determined. In this situation, developers can make use of <strong>nested</strong> if-else statements. A nested if-else statement is an if-else statement that is evaluated within a separate if-else statement.</p>
+<p>Consider a tool that allows a user to specify a state of residence and an income level. The program uses these two inputs to determine a tax rate and outputs the appropriate value to the screen, using the rules in the following table.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>State</th><th>Income</th><th>Tax Rate</th></tr>
+</thead>
+<tbody>
+<tr><td>WI</td><td>&gt; $200,000</td><td>50%</td></tr>
+<tr><td>WI</td><td>[$75,000, $200,000]</td><td>35%</td></tr>
+<tr><td>WI</td><td>&lt; $75,000</td><td>25%</td></tr>
+<tr><td>NC</td><td>&gt; $200,000</td><td>45%</td></tr>
+<tr><td>NC</td><td>[$75,000, $200,000]</td><td>30%</td></tr>
+<tr><td>NC</td><td>&lt; $75,000</td><td>20%</td></tr>
+<tr><td>NV</td><td>&gt; $200,000</td><td>42.5%</td></tr>
+<tr><td>NV</td><td>[$75,000, $200,000]</td><td>32.5%</td></tr>
+<tr><td>NV</td><td>&lt; $75,000</td><td>17.5%</td></tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-java">Scanner scnr = new Scanner(System.in);
+String stateInput;
+int income;
+
+System.out.println("Enter State (WI, NC or NV)");
+stateInput = scnr.nextLine();
+System.out.println("Enter Income");
+income = scnr.nextInt();
+
+double taxRate = 0;
+
+// OUTER if-else: which state was entered
+if (stateInput.equals("WI")) {
+    // NESTED if-else: which income bracket the income falls into
+    if (income &gt; 200000) {
+        taxRate = .5;
+    }
+    else if (income &gt;= 75000) {
+        taxRate = .35;
+    }
+    else {
+        taxRate = .25;
+    }
+}
+else if (stateInput.equals("NC")) {
+    if (income &gt; 200000) {
+        taxRate = .45;
+    }
+    else if (income &gt;= 75000) {
+        taxRate = .30;
+    }
+    else {
+        taxRate = .20;
+    }
+}
+else if (stateInput.equals("NV")) {
+    if (income &gt; 200000) {
+        taxRate = .425;
+    }
+    else if (income &gt;= 75000) {
+        taxRate = .325;
+    }
+    else {
+        taxRate = .175;
+    }
+}
+else {
+    System.out.println("Invalid State Entered");
+}
+
+// taxRate is still 0 for a state that matched none of the branches above,
+// so the summary is only printed for a recognized state.
+if (stateInput.equals("WI") || stateInput.equals("NC") || stateInput.equals("NV")) {
+    System.out.println("Tax rate for " + stateInput + " with income " + income + ": " + taxRate);
+}
+</code></pre>
+<p>Notice that there is an outer if-else structure corresponding to the three state options. Within each code block of the state if-else structure is a nested if-else statement modeling the three income brackets. Notice also the final <code>if</code> statement: because an unrecognized state leaves <code>taxRate</code> at 0, printing the summary unconditionally would report a tax rate of 0.0 for a state that was never valid in the first place.</p>
+<h2 id="check-your-understanding-5"><a class="header" href="#check-your-understanding-5">Check Your Understanding</a></h2>
+<ol>
+<li>In an if-else statement with an <code>if</code>, two <code>else if</code> blocks, and an <code>else</code>, how many branches execute when the program runs?</li>
+<li>Under what circumstances does the <code>else</code> block execute?</li>
+<li>Why is <code>inspectionResult.equals("pass")</code> used in the condition instead of <code>inspectionResult == "pass"</code>?</li>
+<li>Write the condition that is true when <code>defectCount</code> is between 10 and 20, inclusive.</li>
+<li>Why does <code>if (0 &lt;= defectCount &lt;= 4)</code> fail to compile? Explain what the two operand types in the error message refer to.</li>
+<li>What is printed by the code below, and why is it the wrong answer?
+<pre><code class="language-java">boolean batchPassed = false;
+if (batchPassed = true) {
+    System.out.println("passed");
+}
+</code></pre>
+</li>
+<li>In the guard <code>partsInspected != 0 &amp;&amp; defectsFound / partsInspected &gt; 2</code>, what would happen if the two conditions were written in the opposite order?</li>
+<li>In the tax rate example, which branch executes for a WI resident with an income of exactly $200,000, and why?</li>
+</ol>
+<h2 id="practice-5"><a class="header" href="#practice-5">Practice</a></h2>
+<p>Open <code>SingleIfElse.java</code> and <code>IfElseIfElse.java</code>, and change <code>inspectionResult</code> and <code>disposition</code> to confirm that a different branch executes each time.</p>
+<p>In <code>DetectingRanges.java</code>, change <code>defectCount</code> to 0, 3, and 9 and confirm that each disposition is reported correctly.</p>
+<p>Run <code>BranchingTraps.java</code> and make sure you can explain both lines of wrong output. Then uncomment traps 3 and 4 to see the two compiler errors for yourself.</p>
+<p>Finish with <code>NestedIfElse.java</code>, running it with several combinations of state and income, including a state that is not WI, NC, or NV.</p>
+<p>Two exercises to write yourself:</p>
+<ol>
+<li>Read an <code>int</code> from the user and output whether the value entered is an even or an odd number.</li>
+<li>Extend the disposition rules in <code>DetectingRanges.java</code> so that a part with more than 20 defects is reported as <code>Disposition: reject supplier lot</code> rather than <code>scrap</code>.</li>
+</ol>
+<h2 id="ai-use-disclosure-5"><a class="header" href="#ai-use-disclosure-5">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Opus 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="switch-statements"><a class="header" href="#switch-statements">Switch Statements</a></h1>
+<p><a href="../../Slides/T07SwitchStatements/SwitchStatements.html">Slides for this topic</a></p>
+<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
+<p>In this section we will be focusing on <code>switch</code> statements. A <code>switch</code> statement is used to evaluate a value according to multiple conditions. Think about how hardware switches are used to route electrical connections. A <code>switch</code> statement is an alternative to the if-else statement construct discussed previously. In the discussion that follows, implementation of <code>switch</code> statements is demonstrated.</p>
+<h2 id="basic-concepts-1"><a class="header" href="#basic-concepts-1">Basic Concepts</a></h2>
+<p>A <code>switch</code> can replace if-else statements. <code>switch</code> statements receive an input value and compare it to different conditions called cases. Each case contains code that is to be executed if the case matches the input. If the input value does not match any of the cases, then the <code>switch</code>’s <code>default</code> case will be executed. The other component of <code>switch</code> statements are interruptions called <code>break</code> statements. A <code>break</code> terminates the <code>switch</code> statement execution.</p>
+<p>In the example below, the <code>switch</code> statement evaluates an <code>int</code> variable named <code>input</code>. If the value is 0, then <code>input</code> is assigned 1. If the value is 1, then <code>input</code> is assigned the product of 4 and 36. Additional operations are specified for the cases where <code>input</code> is 25, 4 and 5. If the value provided to the <code>switch</code> statement is not 0, 1, 25, 4 or 5, then the <code>default</code> case is executed and the <code>String</code> “This is the default statement” is printed to the console. Since a <code>break</code> statement is included with each <code>case</code>, the <code>switch</code> statement terminates immediately after the operations associated with a matching <code>case</code> are executed.</p>
+<pre><code class="language-java">switch (input)
+{  //&lt;--- Notice how the statement is enclosed by braces
+  case 0:
+    input = 1; //Any expression here will be executed if the input matches the case number
+    //This is the first case of the `switch` statement
+  break;
+
+  case 1:
+    input = 4*36;
+    //This is the second case of the `switch` statement
+  break;
+
+  case 25:
+    input = input + 1;
+    //Notice that the case number can be any number you choose
+  break;
+
+  case 4:
+    input++;
+    //They do not need to be in any specific order, but it is good practice to start from the lowest number
+  break;
+
+  case 5:
+    input = input/25;
+    //Notice how after the case number we have a colon ":" instead of the usual semi-colon ";"
+  break;
+
+  default:
+    System.out.print("This is the default statement");
+    //This statement will execute if the value of the input does not match any of the other cases
+  break;
+}  //&lt;--- Notice how the statement is enclosed by braces
+</code></pre>
+<h3 id="basic-switch-exercise"><a class="header" href="#basic-switch-exercise">Basic <code>switch</code> Exercise</a></h3>
+<ul>
+<li>In the <code>SwitchIntro</code> class, add a <code>case</code> that executes <code>input--</code> only if <code>input</code> equals 112.</li>
+<li>In the <code>SwitchIntro</code> class, add a <code>case</code> that executes <code>input*=4</code> only if <code>input</code> equals 58.</li>
+</ul>
+<h2 id="omitting-the-break-statement"><a class="header" href="#omitting-the-break-statement">Omitting the break Statement</a></h2>
+<p>It is possible to execute multiple cases when a single <code>switch</code> statement is evaluated. To accomplish this, omit the <code>break</code> statement from specific <code>case</code> code blocks. The example below illustrates this concept. When <code>input</code> is 1, <code>case</code> 1 is executed along with 2 and 3. This occurs because the <code>break</code> statement is not included until after <code>case</code> 3. Similarly, if the input does not match cases 1-3 but does match case 4, 5 or 6, then the operations associated with 4, 5 and 6 are executed. The exclusion of <code>break</code> statements makes the ordering of the cases consequential.</p>
+<pre><code class="language-java">switch (input)
+{
+  case 1:
+  case 2:
+  case 3:
+    System.out.print("The input was between 1 and 3");
+  break;
+
+  case 4:
+  case 5:
+  case 6:
+    System.out.print("The input was between 4 and 6");
+  break;
+
+  case 7:
+  case 8:
+  case 9:
+    System.out.print("The input was between 7 and 9");
+  break;
+
+  default:
+    System.out.print("The input did not match any of the cases");
+}
+</code></pre>
+<p>In both examples above, note that this use of <code>switch</code> is similar to an if-else statement with a range in the condition. If the problem allows multiple values to arrive at the same outcome, it might be worth considering an if-else statement instead. The same program above could be condensed to the following code:</p>
+<pre><code class="language-java">if(input&gt;=1 &amp;&amp; input &lt;=3)
+{
+  System.out.print("The input was between 1 and 3");
+}
+else if(input &gt; 3 &amp;&amp; input &lt;=6)
+{
+  System.out.print("The input was between 4 and 6");
+}
+else if(input &gt; 6 &amp;&amp; input &lt;=9)
+{
+  System.out.print("The input was between 7 and 9");
+}
+else
+{
+  System.out.print("The input did not match any of the cases");
+}
+</code></pre>
+<p>We can see that with only a few outcomes to consider, the effort to implement a <code>switch</code> versus an if-else is similar. However, whenever we are dealing with large ranges of outcomes, if-else can be time saving to implement.</p>
+<h2 id="switch-statements-with-char-input"><a class="header" href="#switch-statements-with-char-input"><code>switch</code> Statements with <code>char</code> Input</a></h2>
+<p>Characters can also be used as input for a <code>switch</code> statement. This is particularly common when creating a menu of options for a user to choose from. Recall that lowercase and uppercase variants of <code>char</code> values are not equivalent. However, we can overcome this issue by including both lowercase and uppercase cases before a <code>switch</code> <code>break</code>. An example is shown below:</p>
+<pre><code class="language-java">char input = 'a';
+
+switch (input)
+{
+  case 'a':
+  case 'A':
+    System.out.print("Either A or a will make this case execute");
+  break;
+       //Do not forget the break whenever you need to separate cases
+
+  case 'b':
+  case 'B':
+    System.out.print("This statement can also be executed by upper or lowercase b");
+  break;
+
+  default:
+    System.out.print("As usual, default executes if the input does not match any of the cases");
+}
+</code></pre>
+<h2 id="switch-with-string-exercise"><a class="header" href="#switch-with-string-exercise"><code>switch</code> with <code>String</code> Exercise</a></h2>
+<p>Assembly-line workstations are often identified by a short station code (a <code>String</code>), while downstream scheduling software needs the station’s standard cycle time in seconds (an <code>int</code>) to balance the line. In the class <code>SwitchStrings</code>, add a <code>switch</code> statement that sets the <code>int</code> variable <code>cycleTime</code> to the value specified in the following table according to the <code>String</code> provided as the <code>station</code> input.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>station (String)</th><th>cycleTime, seconds (int)</th></tr>
+</thead>
+<tbody>
+<tr><td>WS1</td><td>42</td></tr>
+<tr><td>WS2</td><td>58</td></tr>
+<tr><td>WS3</td><td>35</td></tr>
+</tbody>
+</table>
+</div>
+<p>If a station code other than the three in this table is provided as input to your <code>switch</code> statement, then the following message should be printed to the console and the program should terminate.</p>
+<pre><code class="language-java">    "Station not found"
+</code></pre>
+<h2 id="check-your-understanding-6"><a class="header" href="#check-your-understanding-6">Check Your Understanding</a></h2>
+<ol>
+<li>What happens if you leave the <code>break</code> out of a <code>case</code> that is followed by other cases?</li>
+<li>In the <code>SwitchIntro</code> starter code, <code>input</code> starts at 0. What value does the program print after the <code>switch</code> runs, and why isn’t it <code>144</code>?</li>
+<li>Why can’t you write <code>case input &gt; 5:</code> in a <code>switch</code> statement?</li>
+<li>Why does the <code>char</code> example list <code>case 'a':</code> and <code>case 'A':</code> back to back instead of using a single case?</li>
+<li>If a problem has 50 possible input values that each map to a different outcome, would you reach for a <code>switch</code> or an if-else chain? What if all 50 values map to only three outcomes?</li>
+</ol>
+<h2 id="practice-6"><a class="header" href="#practice-6">Practice</a></h2>
+<p>Open <code>SwitchIntro.java</code> to see the basic structure, then <code>OmittingBreaks.java</code> to see fall-through behavior and <code>SwitchCharacters.java</code> to see a <code>char</code> menu.</p>
+<p>Then complete <code>SwitchStrings.java</code> using the cycle-time table above.</p>
+<h2 id="ai-use-disclosure-6"><a class="header" href="#ai-use-disclosure-6">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Opus 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="random-numbers"><a class="header" href="#random-numbers">Random Numbers</a></h1>
+<p><a href="../../Slides/T08RandomNumbers/RandomNumbers.html">Slides for this topic</a></p>
+<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
+<p>In this section we will be focusing on generating random numbers in Java. Random numbers are used throughout industrial engineering, from simulating queues and processing times, to randomly sampling parts for a quality audit, to generating synthetic test data for an algorithm. Java provides two common ways to generate random values: the <code>Math.random()</code> method and the <code>java.util.Random</code> class. In the discussion that follows, both approaches are demonstrated.</p>
+<h2 id="generating-random-values-with-mathrandom"><a class="header" href="#generating-random-values-with-mathrandom">Generating Random Values with <code>Math.random()</code></a></h2>
+<p><code>Math.random()</code> is a <code>static</code> method available on the <code>Math</code> class. It requires no import and no object creation. Every call returns a <code>double</code> that is greater than or equal to 0.0 and strictly less than 1.0, i.e. the interval [0.0, 1.0). Because <code>Math.random()</code> always returns a value in this fixed range, we scale and cast the result to obtain values useful for a particular problem. In the example below, <code>n</code> stores the raw <code>double</code> result, and <code>i</code> scales that result by 10 and casts it to an <code>int</code> to produce a whole number between 0 and 9.</p>
+<pre><code class="language-java">double n = Math.random(); // 0.0 &lt;= n &lt; 1.0
+int i = (int) (Math.random() * 10); // 0-9
+
+System.out.println(n);
+System.out.println(i);
+</code></pre>
+<h3 id="basic-random-number-exercise"><a class="header" href="#basic-random-number-exercise">Basic Random Number Exercise</a></h3>
+<ul>
+<li>In the <code>Simple</code> class, add a line that prints a random <code>int</code> between 1 and 100, inclusive.</li>
+<li>In the <code>Simple</code> class, add a line that prints a random <code>double</code> between 0.0 and 5.0.</li>
+</ul>
+<h2 id="the-javautilrandom-class"><a class="header" href="#the-javautilrandom-class">The <code>java.util.Random</code> Class</a></h2>
+<p>The <code>java.util.Random</code> class provides more options than <code>Math.random()</code>. After importing <code>java.util.Random</code> and creating a <code>Random</code> object, several methods are available: <code>nextInt(bound)</code> returns an <code>int</code> between 0 (inclusive) and <code>bound</code> (exclusive), <code>nextDouble()</code> returns a <code>double</code> in [0.0, 1.0) just like <code>Math.random()</code>, and <code>nextBoolean()</code> returns either <code>true</code> or <code>false</code>. The example below illustrates each of these methods, including how <code>nextInt</code> can be shifted with <code>+ 1</code> to simulate a six-sided die, which produces values 1 through 6 instead of 0 through 5.</p>
+<pre><code class="language-java">import java.util.Random;
+
+public class Classic {
+    public static void main(String[] args) {
+        Random rand = new Random();
+
+        int n = rand.nextInt(10);      // 0-9
+        int n2 = rand.nextInt(6) + 1;  // 1-6
+        double d = rand.nextDouble();  // 0.0 &lt;= d &lt; 1.0
+        boolean b = rand.nextBoolean();
+
+        System.out.println("int between 0 and 9: " + n);
+        System.out.println("int between 1 and 6: " + n2);
+        System.out.println("double between 0 and 1: " + d);
+        System.out.println("boolean: " + b);
+    }
+}
+</code></pre>
+<p>A useful feature of <code>Random</code> that <code>Math.random()</code> does not offer is seeding. Creating a <code>Random</code> object with an integer argument, such as <code>new Random(42)</code>, produces the exact same sequence of “random” values every time the program runs. This is helpful when debugging a simulation or when a repeatable sequence of test values is needed; a <code>Random</code> object created without an argument, as in the example above, is seeded using the current system time and will differ from run to run.</p>
+<h2 id="generating-a-random-integer-within-an-arbitrary-range"><a class="header" href="#generating-a-random-integer-within-an-arbitrary-range">Generating a Random Integer Within an Arbitrary Range</a></h2>
+<p><code>nextInt(bound)</code> always starts at 0. To generate a random integer within any range from <code>min</code> to <code>max</code>, inclusive, use the general formula below.</p>
+<pre><code class="language-java">int value = min + rand.nextInt(max - min + 1);
+</code></pre>
+<p>The example below simulates the processing time, in seconds, of a randomly selected part arriving at a workstation, where the processing time can be anywhere from 30 to 60 seconds.</p>
+<pre><code class="language-java">import java.util.Random;
+
+public class RandomRange {
+    public static void main(String[] args) {
+        Random rand = new Random();
+
+        int min = 30;
+        int max = 60;
+        int processingTime = min + rand.nextInt(max - min + 1); // 30-60, inclusive
+
+        System.out.println("Processing time (s): " + processingTime);
+    }
+}
+</code></pre>
+<h2 id="random-number-exercise"><a class="header" href="#random-number-exercise">Random Number Exercise</a></h2>
+<p>A quality engineer wants to randomly route each incoming part to one of three inspection stations, <code>WS1</code>, <code>WS2</code> or <code>WS3</code>, so that no single station is biased toward getting more parts than the others. In the class <code>RandomExercise</code>, use <code>rand.nextInt(...)</code> to pick a station number from 1 to 3, then use a <code>switch</code> statement – the construct from the previous chapter – to set <code>selectedStation</code> to the matching station name.</p>
+<pre><code class="language-java">import java.util.Random;
+
+public class RandomExercise {
+    public static void main(String[] args) {
+        Random rand = new Random();
+
+        //TODO: use rand.nextInt(...) to pick a station number from 1 to 3,
+        //then use a switch statement to set selectedStation to "WS1", "WS2" or "WS3"
+        int stationNumber = 0;
+        String selectedStation = "";
+
+        System.out.println("Station number: " + stationNumber);
+        System.out.println("Part routed to: " + selectedStation);
+    }
+}
+</code></pre>
+<p>Run your finished program several times. Because the station is chosen at random, the output should not be the same every run – and over many runs, no station should appear noticeably more often than the other two.</p>
+<h2 id="check-your-understanding-7"><a class="header" href="#check-your-understanding-7">Check Your Understanding</a></h2>
+<ol>
+<li>Can <code>Math.random()</code> ever return exactly 1.0? Can it return exactly 0.0?</li>
+<li>Why does <code>(int) (Math.random() * 10)</code> produce values 0 through 9 rather than 0 through 10?</li>
+<li>What set of values can <code>rand.nextInt(6)</code> return on its own, before the <code>+ 1</code> is applied?</li>
+<li>Using the formula <code>min + rand.nextInt(max - min + 1)</code>, how many distinct values are possible when <code>min</code> is 30 and <code>max</code> is 60?</li>
+<li>Two students run the same program. One created their <code>Random</code> with <code>new Random()</code> and the other with <code>new Random(42)</code>. Which one can reproduce the exact same output tomorrow, and why would that matter when testing a simulation?</li>
+</ol>
+<h2 id="practice-7"><a class="header" href="#practice-7">Practice</a></h2>
+<p>Open <code>Simple.java</code> to see <code>Math.random()</code>, then <code>Classic.java</code> and <code>RandomRange.java</code> to see the <code>java.util.Random</code> class and the arbitrary-range formula.</p>
+<p>Then complete <code>RandomExercise.java</code> to route parts randomly across three inspection stations.</p>
+<h2 id="ai-use-disclosure-7"><a class="header" href="#ai-use-disclosure-7">AI Use Disclosure</a></h2>
+<p>Anthropic. (2026). Claude Code (Opus 5) [Large language model]. https://claude.com/claude-code</p>
+<p>Claude Code was used to draft, revise, and design this primer, including content review and formatting.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

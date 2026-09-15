@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INEG 22104: Git and GitHub Desktop Guide</title>
+<style>
+:root { --ink:#1a1a1a; --muted:#5b5b5b; --rule:#c9ccd1; --accent:#9d2235; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #f4f4f6; color: var(--ink); font-family: Calibri, "Segoe UI", system-ui, -apple-system, sans-serif; font-size: 11pt; line-height: 1.45; }
+main { width: min(92vw, 1180px); margin: 2rem auto 4rem; background: #fff; padding: 3.5rem 4rem 4rem; border: 1px solid #e2e3e7; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+h1.doctitle { text-align: center; font-size: 1.55em; font-weight: 700; line-height: 1.25; margin: 0 0 .15em; }
+p.subtitle { text-align: center; font-size: 1.05em; font-weight: 600; margin: .1em 0; }
+p.subtitle.last { margin-bottom: 1.5em; }
+h2 { font-size: 1.2em; font-weight: 700; margin: 2em 0 .55em; padding-bottom: .2em; border-bottom: 2px solid var(--rule); }
+h3 { font-size: 1.05em; font-weight: 700; margin: 1.5em 0 .4em; }
+p { margin: 0 0 .85em; }
+a { color: #0b5cab; }
+ul, ol { margin: 0 0 .9em; padding-left: 2.1em; }
+li { margin: 0 0 .45em; }
+li > ul, li > ol { margin-top: .45em; }
+table { border-collapse: collapse; margin: 0 0 1.2em; }
+table.grid { width: 100%; }
+table.grid th, table.grid td { border: 1px solid var(--rule); padding: .5em .7em; text-align: left; vertical-align: top; }
+table.grid th { background: #f0f1f4; font-weight: 700; }
+code { font-family: Consolas, "Courier New", monospace; background:#f6f6f8; padding:.06em .25em; border:1px solid #e2e3e7; border-radius:2px; }
+pre { background:#f6f6f8; border:1px solid #e2e3e7; padding:.8em 1em; overflow-x:auto; }
+pre code { background: transparent; border:0; padding:0; }
+blockquote { margin: 1em 0 1em 1em; padding-left: 1em; border-left: 4px solid var(--rule); color: var(--muted); }
+.ai-citation-spacer { height: 1.4em; }
+@media (max-width: 800px) { main { width: 100%; padding: 1.5rem 1.15rem 2.5rem; border: 0; border-radius: 0; } }
+@media print { body { background: #fff; } main { width: auto; padding: 0; border: 0; box-shadow: none; } }
+@page { margin: .72in; @bottom-center { content: "INEG 22104 Git and GitHub Desktop Guide - Page " counter(page) " of " counter(pages); font-size: 9pt; color: #5b5b5b; } }
+</style>
+</head>
+<body>
+<main>
+<h2 id="ineg-22104-computing-methods-for-industrial-engineers-i">INEG
+22104: Computing Methods for Industrial Engineers I</h2>
+<p class="subtitle"><strong>University of Arkansas</strong></p>
+<p class="subtitle"><strong>Fall 2026</strong></p>
+<p class="subtitle"><strong>Git and GitHub Desktop Guide</strong></p>
+<p class="subtitle last">Updated August 17, 2026</p>
+<p>
+This guide explains how we will use Git and GitHub Desktop in INEG
+22104. The course organization is <code>INEG-22104-Fall-2026</code>, and
+the main course repository is
+<code>F26-22104-Main-Course-Repository</code>. The goal is simple: the
+course repository is where I release material, and your fork is where
+you keep and submit your own work. You will not submit pull requests
+back to the course repository.<br />
+The screens you see on GitHub or in GitHub Desktop may look a little
+different from the screenshots shown in class or in vendor
+documentation. Vendors redesign pages often, so look for the same labels
+rather than the same colors or exact layout.</p>
+<h2 id="before-we-begin-what-are-git-github-and-github-desktop">Before
+we begin: what are Git, GitHub, and GitHub Desktop?</h2>
+<p>Throughout this course, you will use three related tools:</p>
+<table class="grid">
+<tr>
+<th>
+Tool
+</th>
+<th>
+What it does
+</th>
+</tr>
+<tr>
+<td>
+Git
+</td>
+<td>
+Keeps track of changes to files over time. Think of it as an unlimited
+undo system that records snapshots of your work.
+</td>
+</tr>
+<tr>
+<td>
+GitHub
+</td>
+<td>
+Stores Git repositories online so they can be backed up, shared, and
+reviewed.
+</td>
+</tr>
+<tr>
+<td>
+GitHub Desktop
+</td>
+<td>
+A graphical application that allows you to use Git without typing
+commands into a terminal.
+</td>
+</tr>
+</table>
+<p>For this course, you do not need to become a Git expert. We will use
+Git and GitHub for three practical reasons:</p>
+<ol type="1">
+<li>To keep your work backed up.</li>
+<li>To make it easy for me to distribute course materials.</li>
+<li>To allow the teaching team to review and grade your work
+directly.</li>
+</ol>
+<h3 id="a-real-world-analogy">A real-world analogy</h3>
+<p>Think of GitHub as a cloud folder that keeps a complete history of
+your work.</p>
+<p>Imagine that I handed every student a three-ring binder at the
+beginning of the semester.</p>
+<ul>
+<li>The instructor section contains notes, examples, assignments, and
+course materials.</li>
+<li>The student section contains your own work.</li>
+<li>Whenever I add new course materials, everyone receives the
+update.</li>
+<li>Your work remains separate from everyone else’s work.</li>
+</ul>
+<p>Git and GitHub provide a similar experience, except everything is
+stored electronically and every change can be recorded.</p>
+<h3 id="four-important-concepts">Four important concepts</h3>
+<p>Before working with the repository, make sure you understand these
+ideas.</p>
+<p><strong>Repository</strong></p>
+<p>A repository, often called a repo, is a folder whose contents are
+tracked by Git.</p>
+<p>In this course, the main repository is:</p>
+<pre class="text"><code>F26-22104-Main-Course-Repository</code></pre>
+<p>This repository contains course materials and serves as the starting
+point for every student.</p>
+<p><strong>Fork</strong></p>
+<p>A fork is your own copy of a repository.</p>
+<p>You will create a fork of the course repository. After creating a
+fork, there will be an instructor repository and your own fork:</p>
+<pre class="text"><code>Instructor repository:
+F26-22104-Main-Course-Repository
+
+Your fork:
+F26-22104-Main-Course-Repository-YourGitHubUsername</code></pre>
+<p>Your fork belongs to you. The teaching team can review it, but your
+fork is the place where your work lives.</p>
+<p><strong>Clone</strong></p>
+<p>A clone is a copy of a repository that lives on your computer.</p>
+<p>After creating your fork on GitHub, you will use GitHub Desktop to
+clone the fork to your laptop:</p>
+<pre class="text"><code>GitHub: your fork
+Your computer: local clone</code></pre>
+<p>You will do most of your work in the local clone on your own
+computer.</p>
+<p><strong>Commit</strong></p>
+<p>A commit is a saved checkpoint.</p>
+<p>Every time you reach a meaningful stopping point, Git allows you to
+create a commit. Think of a commit as saying:</p>
+<blockquote>
+<p>Save a snapshot of my work so I can return to it later if needed.</p>
+</blockquote>
+<p>When you create a commit, the snapshot is stored locally on your
+computer. When you push, the snapshot is uploaded to GitHub.</p>
+<h3 id="the-workflow-you-will-use-every-week">The workflow you will use
+every week</h3>
+<p>For most assignments, your workflow will look like this:</p>
+<pre class="text"><code>1. Sync your fork
+2. Pull updates to your computer
+3. Work in your personal folder
+4. Commit your changes
+5. Push to GitHub
+6. Verify your work appears in your fork</code></pre>
+<p>That is the entire workflow we will use for most of the semester.</p>
+<h3 id="what-you-need-to-remember">What you need to remember</h3>
+<p>If you remember only three things from this guide, remember
+these:</p>
+<ol type="1">
+<li>The instructor repository is where course materials originate.</li>
+<li>Your fork is where your work is stored and graded.</li>
+<li>Keep all of your work inside your personal folder under
+<code>student/</code>.</li>
+</ol>
+<p>If you follow those three rules, Git and GitHub will be much easier
+to use.</p>
+<h2 id="what-you-will-do">What you will do</h2>
+<table class="grid">
+<tr>
+<th>
+Part
+</th>
+<th>
+What you are doing
+</th>
+<th>
+What you turn in
+</th>
+</tr>
+<tr>
+<td>
+Part 1. Confirm access
+</td>
+<td>
+Accept the course organization invitation and confirm that you can see
+the course repository
+</td>
+<td>
+Nothing, but do this before class work begins
+</td>
+</tr>
+<tr>
+<td>
+Part 2. Fork the course repository
+</td>
+<td>
+Create your own copy of the course repository in your GitHub account
+</td>
+<td>
+Your fork becomes the place where your work lives
+</td>
+</tr>
+<tr>
+<td>
+Part 3. Clone your fork
+</td>
+<td>
+Use GitHub Desktop to download your fork to your computer
+</td>
+<td>
+Nothing, but the local folder is where you will edit files
+</td>
+</tr>
+<tr>
+<td>
+Part 4. Work in your own folder
+</td>
+<td>
+Create a personal folder under student/ and do all course work there
+</td>
+<td>
+Your committed and pushed files in your personal folder under student/
+</td>
+</tr>
+<tr>
+<td>
+Part 5. Sync when new course content is posted
+</td>
+<td>
+Update your fork from the course repository, then pull the update in
+GitHub Desktop
+</td>
+<td>
+Nothing, but do this whenever I announce new material
+</td>
+</tr>
+<tr>
+<td>
+Part 6. Keep main current
+</td>
+<td>
+Commit and push your assignment work to the main branch of your fork
+</td>
+<td>
+The teaching team grades the main branch of your fork
+</td>
+</tr>
+</table>
+<h2 id="the-course-repository-model">The course repository model</h2>
+<p>The course repository belongs to the
+<code>INEG-22104-Fall-2026</code> course organization. The repository is
+named <code>F26-22104-Main-Course-Repository</code>, and it is the main
+source of course material. Inside the repository, there are two
+important areas:</p>
+<ul>
+<li><code>instructor/</code> is for course notes, examples, starter
+files, assignment descriptions, and other material that I provide. Do
+not edit files in this folder unless I explicitly tell you to do
+so.</li>
+<li><code>student/</code> is the area where student work belongs. Inside
+your fork, create your own personal folder under <code>student/</code>
+and put all of your course work there. A good folder name is your GitHub
+username, because that makes the folder easy for the teaching team to
+identify.</li>
+</ul>
+<p>You will create a fork of the course repository. A fork is your own
+copy of a repository. GitHub describes a fork as a new repository that
+shares code and visibility settings with the original upstream
+repository, and forking lets you work without affecting the upstream
+repository.<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> In this course, the upstream
+repository is the course repository. Your fork is the copy under your
+GitHub account.</p>
+<p>The important rule is this: <strong>do not send pull requests back to
+the course repository unless I explicitly ask you to.</strong> The
+teaching team will look at the main branch of your fork when grading.
+The course repository stays clean, and each student has a separate
+workspace. Within your workspace, keep your own work inside your own
+folder, such as <code>student/your-github-username/</code>.</p>
+<h3
+id="best-practice-keep-your-work-isolated-from-the-base-structure">Best
+practice: keep your work isolated from the base structure</h2>
+<p>The first practice for the course is to do all of your work in a
+folder that does not interact with the base structure of the course
+repository in any manner. This greatly reduces the chance of conflicts
+when you sync new course material.</p>
+<p>For example, after cloning your fork, create a personal folder inside
+<code>student/</code>:</p>
+<pre class="text"><code>student/
+  your-github-username/
+    Assignment01/
+    Assignment02/
+    Practice/
+    Notes/</code></pre>
+<p>If the instructor does not put anything in a folder with the same
+name, Git will rarely have a reason to report a conflict involving your
+work. For that reason, I recommend using your GitHub username as the
+folder name. For example:</p>
+<pre class="text"><code>student/
+  homer-simpson/</code></pre>
+<p>Think of the repository as a textbook and notebook combined into one
+folder structure. The <code>instructor/</code> folder is the textbook.
+Your personal folder inside <code>student/</code> is your notebook.
+Treat everything outside your personal folder as instructor-managed
+content. Treat everything inside your personal folder as your
+workspace.</p>
+<h2 id="part-1.-confirm-your-github-desktop-installation">Part 1.
+Confirm your GitHub Desktop installation</h2>
+<ol type="1">
+<li>Download and install GitHub Desktop from the official GitHub Desktop
+download page if you have not already installed it.<a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></li>
+<li>Open GitHub Desktop.</li>
+<li>Sign in with the same GitHub account that you gave me for INEG
+22104.</li>
+<li>If GitHub Desktop asks to configure Git, accept the defaults unless
+you already know you need something different.</li>
+<li>Keep GitHub Desktop installed on the computer that you bring to
+class.</li>
+</ol>
+<h2 id="part-2.-confirm-your-course-organization-access">Part 2. Confirm
+your course organization access</h2>
+<ol start="6" type="1">
+<li>Go to GitHub in a browser and sign in.</li>
+<li>If you received an invitation to the INEG 22104 organization, accept
+it. GitHub organization invitations must be accepted before the
+invitation expires.</li>
+<li>Click your profile picture in the upper-right corner of GitHub.</li>
+<li>Choose <strong>Your organizations</strong>.</li>
+<li>Confirm that you can see the <code>INEG-22104-Fall-2026</code>
+course organization.</li>
+<li>Open the <code>INEG-22104-Fall-2026</code> organization and view its
+repositories.</li>
+<li>Find the course repository named
+<code>F26-22104-Main-Course-Repository</code>.</li>
+<li>If you cannot see the organization or the course repository, post in
+the course help channel or ask a TA before continuing.</li>
+</ol>
+<h2 id="part-3.-fork-the-course-repository">Part 3. Fork the course
+repository</h2>
+<ol start="14" type="1">
+<li>Open <code>F26-22104-Main-Course-Repository</code> in GitHub.</li>
+<li>Click <strong>Fork</strong> in the upper-right area of the
+repository page. GitHub’s fork documentation shows this as the standard
+way to create a fork from the web interface.<a href="#fn3"
+class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a></li>
+<li>When GitHub asks for the owner of the fork, choose <strong>your
+personal GitHub account</strong>, not the course organization.</li>
+<li>Use a fork name that is easy to identify, such as
+<code>F26-22104-Main-Course-Repository-YourGitHubUsername</code>. Use
+the name or username the instructor and TAs will recognize from class,
+such as
+<code>F26-22104-Main-Course-Repository-homer-simpson</code>.</li>
+<li>If GitHub offers an option to copy only the default branch, leave
+that option selected unless I tell you otherwise. GitHub notes that many
+forking scenarios only require the default branch.<a href="#fn4"
+class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a></li>
+<li>Click <strong>Create fork</strong>.</li>
+<li>After GitHub creates the fork, confirm that the repository page is
+under your GitHub username. The browser address should look like
+<code>github.com/your-username/F26-22104-Main-Course-Repository-YourGitHubUsername</code>.</li>
+<li>Do not delete the fork or change its settings unless I ask you
+to.</li>
+</ol>
+<h2 id="part-4.-clone-your-fork-with-github-desktop">Part 4. Clone your
+fork with GitHub Desktop</h2>
+<ol start="22" type="1">
+<li>While viewing your fork on GitHub, click the green
+<strong>Code</strong> button.</li>
+<li>Choose <strong>Open with GitHub Desktop</strong>. GitHub’s
+documentation also describes cloning a fork after it has been created.<a
+href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a></li>
+<li>When GitHub Desktop opens, choose a local path that you can find
+again. A folder such as <code>Documents/GitHub</code> is a good
+choice.</li>
+<li>Click <strong>Clone</strong>.</li>
+<li>If GitHub Desktop asks how you plan to use the fork, choose the
+option indicating that you are keeping the work for your own purposes
+rather than contributing to the parent repository. In this course, you
+will not submit pull requests to the course repository.</li>
+<li>After the clone finishes, click <strong>Repository</strong>, then
+<strong>Show in Explorer</strong> on Windows or <strong>Show in
+Finder</strong> on macOS to confirm that the local folder exists on your
+computer.</li>
+</ol>
+<h2 id="part-5.-do-your-work-only-in-your-own-folder">Part 5. Do your
+work only in your own folder</h2>
+<ol start="28" type="1">
+<li>Open the cloned repository folder on your computer.</li>
+<li>Open the <code>student/</code> folder.</li>
+<li>Inside <code>student/</code>, create one folder for your own work. I
+recommend naming this folder with your GitHub username.</li>
+<li>Put all assignments, labs, practice exercises, and personal notes
+inside your own folder.</li>
+<li>Do not place work directly in the top level of <code>student/</code>
+unless I specifically tell you to do so.</li>
+<li>Do not create files or folders that interact with the base structure
+of the course repository. Your personal folder should be separate from
+the instructor-managed structure.</li>
+<li>Do not edit, move, rename, or delete files inside the
+<code>instructor/</code> folder. That folder exists so I can deliver
+notes, examples, starter code, and assignment materials to you.</li>
+<li>If an assignment gives you a starter file in
+<code>instructor/</code>, copy the required file into the correct place
+inside your personal folder under <code>student/</code> before editing
+it, unless the assignment directions say something else.</li>
+<li>If the instructor does not place files in a folder with the same
+name as your personal folder, then your work should not conflict with
+future updates to the course repository.</li>
+</ol>
+<h2 id="part-6.-commit-and-push-your-work">Part 6. Commit and push your
+work</h2>
+<ol start="37" type="1">
+<li>In GitHub Desktop, select your cloned fork from the current
+repository menu.</li>
+<li>Make sure the current branch is <code>main</code>.</li>
+<li>After you add or edit files in your folder under
+<code>student/</code>, return to GitHub Desktop.</li>
+<li>Review the list of changed files. Confirm that the changes are
+inside your personal folder under <code>student/</code>, not directly in
+<code>student/</code> and not in <code>instructor/</code>.</li>
+<li>Type a short summary in the summary box. Examples:
+<code>Complete assignment 01 setup</code>,
+<code>Add loop practice files</code>, or
+<code>Update reflection code</code>.</li>
+<li>Click <strong>Commit to main</strong>.</li>
+<li>Click <strong>Push origin</strong>. This sends the commit from your
+computer to your fork on GitHub.</li>
+<li>Open your fork in a browser and confirm that the latest files appear
+in your personal folder under <code>student/</code>.</li>
+</ol>
+<h2 id="part-7.-sync-your-fork-when-i-post-new-material">Part 7. Sync
+your fork when I post new material</h2>
+<p>When I announce that new course material is available, update your
+fork before you start working from those files.</p>
+<ol start="45" type="1">
+<li>Open your fork on GitHub in a browser.</li>
+<li>Make sure you are on the <code>main</code> branch.</li>
+<li>Click the <strong>Sync fork</strong> dropdown. GitHub’s syncing
+documentation says that people with write access to a fork can use
+<strong>Sync fork</strong> to sync a fork to the upstream repository.<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a></li>
+<li>Review the update information.</li>
+<li>Click <strong>Update branch</strong> if GitHub says your branch can
+be updated.</li>
+<li>If GitHub reports a conflict, stop and ask for help before clicking
+anything else. Conflicts usually mean the same file changed in both your
+fork and the course repository.</li>
+<li>After the web update finishes, open GitHub Desktop.</li>
+<li>Select your fork.</li>
+<li>Click <strong>Fetch origin</strong>.</li>
+<li>If GitHub Desktop says there are changes to pull, click <strong>Pull
+origin</strong>.</li>
+<li>Confirm that new course material appears in the local
+<code>instructor/</code> folder or elsewhere in the instructor-managed
+structure.</li>
+</ol>
+<h2 id="part-8.-what-the-teaching-team-will-grade">Part 8. What the
+teaching team will grade</h2>
+<p>The teaching team will grade the main branch of your fork. Your fork
+should remain under your GitHub account. I will add myself and the TAs
+to the grading workflow. If GitHub sends you a collaborator or
+access-related notification from the teaching team, accept it
+promptly.</p>
+<p>Before an assignment deadline, check the following:</p>
+<ul>
+<li>Your fork is visible under your GitHub account.</li>
+<li>Your current work is committed to <code>main</code>.</li>
+<li>You clicked <strong>Push origin</strong> after the final
+commit.</li>
+<li>The files to be graded are inside your personal folder under
+<code>student/</code>.</li>
+<li>You did not edit the <code>instructor/</code> folder or the base
+structure of the course repository.</li>
+<li>You did not open a pull request back to the course repository.</li>
+</ul>
+<h2 id="common-vocabulary">Common vocabulary</h2>
+<table class="grid">
+<tr>
+<th>
+Term
+</th>
+<th>
+What it means in this course
+</th>
+</tr>
+<tr>
+<td>
+Course organization
+</td>
+<td>
+The GitHub organization named INEG-22104-Fall-2026.
+</td>
+</tr>
+<tr>
+<td>
+Course repository
+</td>
+<td>
+The main repository where I release course material. The repository is
+F26-22104-Main-Course-Repository.
+</td>
+</tr>
+<tr>
+<td>
+Fork
+</td>
+<td>
+Your copy of F26-22104-Main-Course-Repository under your GitHub account.
+</td>
+</tr>
+<tr>
+<td>
+Local clone
+</td>
+<td>
+The copy of your fork stored on your computer and managed with GitHub
+Desktop.
+</td>
+</tr>
+<tr>
+<td>
+Origin
+</td>
+<td>
+The Git remote that points from your local clone to your fork on GitHub.
+</td>
+</tr>
+<tr>
+<td>
+Upstream
+</td>
+<td>
+The original course repository from which your fork was created.
+</td>
+</tr>
+<tr>
+<td>
+Main branch
+</td>
+<td>
+The branch the teaching team will grade unless I announce otherwise.
+</td>
+</tr>
+<tr>
+<td>
+Commit
+</td>
+<td>
+A saved checkpoint in Git.
+</td>
+</tr>
+<tr>
+<td>
+Push
+</td>
+<td>
+Sending your local commits to your fork on GitHub.
+</td>
+</tr>
+<tr>
+<td>
+Pull
+</td>
+<td>
+Downloading commits from your fork on GitHub to your local computer.
+</td>
+</tr>
+<tr>
+<td>
+Sync fork
+</td>
+<td>
+Updating your fork with new changes from the course repository.
+</td>
+</tr>
+</table>
+<h2 id="if-something-goes-wrong">If something goes wrong</h2>
+<table class="grid">
+<tr>
+<th>
+If you run into this
+</th>
+<th>
+Do this
+</th>
+</tr>
+<tr>
+<td>
+You cannot see the course organization
+</td>
+<td>
+Confirm that you accepted the invitation using the same GitHub account
+you gave me. If it still does not appear, ask for help.
+</td>
+</tr>
+<tr>
+<td>
+You cannot see the course repository
+</td>
+<td>
+Make sure you are signed in with the correct account and that you
+accepted the organization invitation.
+</td>
+</tr>
+<tr>
+<td>
+You accidentally forked into the wrong owner
+</td>
+<td>
+Stop and ask for help. Do not create multiple extra copies unless
+directed.
+</td>
+</tr>
+<tr>
+<td>
+GitHub Desktop cloned the course repository instead of your fork
+</td>
+<td>
+In GitHub Desktop, remove the incorrect local repository from the app
+only. Do not delete the files from your computer unless a TA or I tells
+you to. Then clone your fork instead.
+</td>
+</tr>
+<tr>
+<td>
+You edited a file in instructor/
+</td>
+<td>
+Do not push until you ask for help. The goal is to keep
+instructor-provided materials unchanged.
+</td>
+</tr>
+<tr>
+<td>
+You put work directly in student/ instead of your own folder
+</td>
+<td>
+Move the work into your personal folder under student/, then commit and
+push the corrected structure.
+</td>
+</tr>
+<tr>
+<td>
+You committed but forgot to push
+</td>
+<td>
+Open GitHub Desktop and click Push origin. A commit on your computer is
+not visible to the teaching team until you push it.
+</td>
+</tr>
+<tr>
+<td>
+Sync fork reports conflicts
+</td>
+<td>
+Stop and ask for help. Do not resolve the conflict by deleting files
+unless a TA or I tells you exactly what to do.
+</td>
+</tr>
+<tr>
+<td>
+Your files are missing on GitHub
+</td>
+<td>
+Check that the files were saved inside your personal folder under
+student/, committed to main, and pushed to origin.
+</td>
+</tr>
+</table>
+<h2 id="the-basic-routine">The basic routine</h2>
+<ol type="1">
+<li>Open GitHub Desktop before you start working.</li>
+<li>Click <strong>Fetch origin</strong> and pull if GitHub Desktop says
+there are updates.</li>
+<li>If I announced new course material, sync your fork on GitHub first,
+then return to GitHub Desktop and pull.</li>
+<li>Work in your personal folder under <code>student/</code>.</li>
+<li>Commit your work with a meaningful summary.</li>
+<li>Push origin.</li>
+<li>Check your fork on GitHub before the deadline.</li>
+</ol>
+<h2 id="references-and-ai-use-disclosure">References and AI use
+disclosure</h2>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>GitHub Docs. (n.d.). <em>Fork a repository</em>.
+https://docs.github.com/fork-a-repo?tool=desktop<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>GitHub. (n.d.). <em>Download GitHub Desktop</em>.
+https://desktop.github.com/download/<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>GitHub Docs. (n.d.). <em>Fork a repository</em>.
+https://docs.github.com/fork-a-repo?tool=desktop<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>GitHub Docs. (n.d.). <em>Fork a repository</em>.
+https://docs.github.com/fork-a-repo?tool=desktop<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>GitHub Docs. (n.d.). <em>Fork a repository</em>.
+https://docs.github.com/fork-a-repo?tool=desktop<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>GitHub Docs. (n.d.). <em>Syncing a fork</em>.
+https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork<br />
+Microsoft. (2026). <em>Microsoft Copilot</em> [Large language model].
+https://copilot.microsoft.com. Microsoft Copilot was used in support of
+the creation of this guide.<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main>
+</body>
+</html>
