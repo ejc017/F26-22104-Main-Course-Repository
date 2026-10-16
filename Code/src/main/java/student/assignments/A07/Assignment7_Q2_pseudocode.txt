@@ -1,0 +1,45 @@
+INPUT:  data/a07_fillVolumes.txt (one volume per line, no count at the top)
+OUTPUT: output/a07_fillHistogram.txt and a summary on the console
+
+DATA:
+  counts : int[10],    index = bin number, starts all 0
+  binLow : double[10], index = bin number, lower edge of that bin
+  LOW = 490.0, WIDTH = 2.0, NUM_BINS = 10, BAR_SCALE = 5
+  HIGH = LOW + NUM_BINS * WIDTH   (510.0)
+  total, below, above : int, all start at 0
+  best : int, index of the fullest bin, starts at 0
+
+STEPS:
+1. FOR b = 0 TO NUM_BINS - 1
+     SET binLow[b] = LOW + b * WIDTH
+   END FOR
+2. WHILE the file has another number
+     READ v
+     SET total = total + 1
+     IF v < LOW THEN
+       SET below = below + 1
+     ELSE IF v >= HIGH THEN
+       SET above = above + 1
+     ELSE
+       SET index = (int) ((v - LOW) / WIDTH)
+       SET counts[index] = counts[index] + 1
+     END IF
+   END WHILE
+3. WRITE header line to the output file
+   FOR b = 0 TO NUM_BINS - 1
+     WRITE binLow[b], binLow[b] + WIDTH, counts[b],
+           100 * counts[b] / total, "*" repeated counts[b] / BAR_SCALE times
+   END FOR
+4. SET best = 0
+   FOR b = 1 TO NUM_BINS - 1
+     IF counts[b] > counts[best] THEN
+       SET best = b
+     END IF
+   END FOR
+5. WRITE total, below, above, counts, and the fullest bin to the console
+
+# Trace 489.6 -> below + 1 (less than 490.0)
+# Trace 490.0 -> index (int) (0.0 / 2.0) = 0, counts[0] + 1
+# Trace 499.9 -> index (int) (9.9 / 2.0) = 4, counts[4] + 1
+# Trace 501.0 -> index (int) (11.0 / 2.0) = 5, counts[5] + 1
+# Trace 510.0 -> above + 1 (510.0 or more)
