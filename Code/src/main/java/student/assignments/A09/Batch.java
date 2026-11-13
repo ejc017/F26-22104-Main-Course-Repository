@@ -1,4 +1,4 @@
-package instructor.assignments.A09;
+package student.assignments.A09;
 
 // This class COMPILES, but it contains bugs. Do not rewrite it; find each bug and fix it.
 public class Batch {

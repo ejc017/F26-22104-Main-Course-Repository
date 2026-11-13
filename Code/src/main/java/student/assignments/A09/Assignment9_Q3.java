@@ -1,4 +1,4 @@
-package instructor.assignments.A09;
+package student.assignments.A09;
 
 public class Assignment9_Q3 {
 
