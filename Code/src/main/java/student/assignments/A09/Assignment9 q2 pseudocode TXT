@@ -1,0 +1,116 @@
+Assignment 9 - Question 2 - Planning the Line 4 Report (pseudocode plan)
+
+INPUT   30 whole numbers, one per line, read from the text file "line4_units.txt"
+        (line 1 = day 1, line 30 = day 30): the units Line 4 finished each day.
+OUTPUT  Two report lines written to the console:
+        (1) the day the running total first reached 1000 units, or a message
+            saying it never did;
+        (2) the length of the longest slump and the day it began, or a
+            message saying there were no slow days.
+
+DATA
+  NUM_DAYS            whole number (constant), value 30
+                      - how many days are in the file.
+  TARGET              whole number (constant), value 1000
+                      - the order size the running total must reach.
+  SLOW_LIMIT          whole number (constant), value 30
+                      - a day with fewer than this many units is a slow day.
+  unitsPerDay         list of whole numbers, size 30 (index 0 to 29), every
+                      element starts at 0
+                      - unitsPerDay[i] holds the units finished on day i + 1.
+  index               whole number, starts at 0
+                      - position in unitsPerDay currently being looked at.
+  runningTotal        whole number, starts at 0
+                      - units added up from day 1 through the current day.
+  dayTargetReached    whole number, starts at 0
+                      - day number (1 to 30) on which runningTotal first
+                        reached TARGET; 0 means "not reached (yet)".
+  currentSlump        whole number, starts at 0
+                      - length of the run of slow days that ends on the
+                        current day; 0 means the current day is not slow.
+  currentSlumpStart   whole number, starts at 0
+                      - day number on which the current run of slow days began.
+  longestSlump        whole number, starts at 0
+                      - length of the longest slump found so far;
+                        0 means no slow day has been found.
+  longestSlumpStart   whole number, starts at 0
+                      - day number on which the longest slump began.
+
+STEPS
+  1. Load the file
+       OPEN "line4_units.txt" for reading
+       FOR index FROM 0 TO NUM_DAYS - 1 (0 to 29, both ends included)
+           READ the next line of the file into unitsPerDay[index]
+       END FOR
+       CLOSE "line4_units.txt"
+
+  2. Find the day the running total first reaches TARGET
+       SET runningTotal = 0
+       SET dayTargetReached = 0
+       SET index = 0
+       WHILE index <= NUM_DAYS - 1 AND dayTargetReached == 0
+           (condition becomes false when index passes 29 - every day added
+            and target never reached - OR when dayTargetReached is set, which
+            stops the adding as soon as the target is reached)
+           SET runningTotal = runningTotal + unitsPerDay[index]
+           IF runningTotal >= TARGET THEN
+               SET dayTargetReached = index + 1
+           END IF
+           SET index = index + 1
+       END WHILE
+
+  3. Find the longest slump (looks at all 30 days, whatever step 2 found)
+       SET currentSlump = 0
+       SET currentSlumpStart = 0
+       SET longestSlump = 0
+       SET longestSlumpStart = 0
+       FOR index FROM 0 TO NUM_DAYS - 1 (0 to 29, both ends included)
+           IF unitsPerDay[index] < SLOW_LIMIT THEN
+               IF currentSlump == 0 THEN
+                   SET currentSlumpStart = index + 1
+               END IF
+               SET currentSlump = currentSlump + 1
+               IF currentSlump > longestSlump THEN
+                   SET longestSlump = currentSlump
+                   SET longestSlumpStart = currentSlumpStart
+               END IF
+           ELSE
+               SET currentSlump = 0
+           END IF
+       END FOR
+       (Ties: ">" means a later slump of equal length does not replace an
+        earlier one, so the first of the longest slumps is reported.)
+
+  4. Report the results
+       IF dayTargetReached == 0 THEN
+           WRITE "Total never reached " + TARGET + " in " + NUM_DAYS + " days" to the console
+       ELSE
+           WRITE "Total reached " + TARGET + " on day " + dayTargetReached to the console
+       END IF
+       IF longestSlump == 0 THEN
+           WRITE "No slow days: every day had at least " + SLOW_LIMIT + " units" to the console
+       ELSE
+           WRITE "Longest slump: " + longestSlump + " days, starting on day " + longestSlumpStart to the console
+       END IF
+
+# TRACE
+# 7-day version: NUM_DAYS = 7 (loops stop at index 6), TARGET = 100, SLOW_LIMIT = 30.
+# Daily outputs: 45  20  25  10  60  28  40
+# Step 2 stops after day 4 (runningTotal 100 >= 100, dayTargetReached = 4).
+# Step 3 runs over all 7 days.
+#
+# Day | Units | Running total | Slow day? | Current slump | Longest slump so far | Longest began on day
+# ----|-------|---------------|-----------|---------------|----------------------|---------------------
+#  1  |  45   |      45       |    No     |       0       |          0           |      0 (none yet)
+#  2  |  20   |      65       |    Yes    |       1       |          1           |      2
+#  3  |  25   |      90       |    Yes    |       2       |          2           |      2
+#  4  |  10   |     100       |    Yes    |       3       |          3           |      2
+#  5  |  60   |    stopped    |    No     |       0       |          3           |      2
+#  6  |  28   |    stopped    |    Yes    |       1       |          3           |      2
+#  7  |  40   |    stopped    |    No     |       0       |          3           |      2
+#
+# (Day 6 starts a new slump: currentSlumpStart = 6, but 1 > 3 is false,
+#  so longestSlump and longestSlumpStart are unchanged.)
+#
+# OUTPUT: WRITE "Total reached 100 on day 4" to the console
+#         WRITE "Longest slump: 3 days, starting on day 2" to the console

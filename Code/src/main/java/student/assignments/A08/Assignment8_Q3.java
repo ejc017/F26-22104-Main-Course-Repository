@@ -1,3 +1,4 @@
+
 package instructor.assignments.A08;
 
 import java.io.FileInputStream;
@@ -21,6 +22,21 @@ public class Assignment8_Q3 {
     //
     // (e) THE RUN: record the full console output below.
     //
+    // Weeks read: 26
+    // Mean weekly demand: 232.2 units
+    //
+    // Window 1: MAE 15.45 units
+    // Window 2: MAE 13.58 units
+    // Window 3: MAE 12.93 units
+    // Window 4: MAE 12.69 units
+    // Window 5: MAE 13.68 units
+    // Window 6: MAE 14.91 units
+    //
+    // Best window: 4
+    // Forecast for week 27: 260.5 units
+    // Week 24: actual 242, forecast 252.8
+    // Week 25: actual 268, forecast 252.0
+    // Week 26: actual 272, forecast 256.3
     //
     //     WRITTEN ANSWERS
     //
@@ -30,17 +46,29 @@ public class Assignment8_Q3 {
     //         its own first forecast week. What is window 1's error now?
     //         Why is that comparison not fair? Put the 6 back afterward.
     //
+    //         Window 1's error becomes 14.36 units.
+    //         This comparison is not fair because each window would
+    //         be tested on a different number of weeks. Some windows
+    //         would include weeks that others do not.
     //
     //     (2) Window 1 is the "naive" forecast: next week equals this
     //         week. Demand here rises about 3 units a week, yet the best
     //         window is not 6. Why does a longer window stop helping?
     //         Why does it not help to use window 1 either?
     //
+    //         A longer window uses older demand values, which can make
+    //         the forecast fall behind when demand is increasing.
+    //         Window 1 only uses the previous week, so it reacts too
+    //         much to changes from one week to the next. Window 4
+    //         gives a better balance between the two.
     //
     //     (3) absoluteValue is private. movingAverageForecast calls
     //         averageOf, and meanAbsoluteError calls absoluteValue. Name
     //         one benefit of building the bigger methods out of small ones.
     //
+    //         Smaller methods make the code easier to read and debug.
+    //         They also let us reuse calculations instead of writing
+    //         the same code multiple times.
     //
     // ================================================================
 
@@ -81,6 +109,22 @@ public class Assignment8_Q3 {
         //             Week 26: actual 272, forecast 256.3
         //           (actual with %.0f, forecast with %.1f; week = index + 1)
 
+        // Get the forecasts using the best window
+        double[] forecast = movingAverageForecast(demand, best);
+
+        // Add room for the next week's forecast
+        forecast = Arrays.copyOf(forecast, forecast.length + 1);
+        forecast[demand.length] = averageOf(demand, demand.length - best, demand.length);
+
+        System.out.printf("Forecast for week %d: %.1f units%n",
+                demand.length + 1, forecast[demand.length]);
+
+        // Print the last three weeks
+        for (int i = demand.length - 3; i < demand.length; i++) {
+            System.out.printf("Week %d: actual %.0f, forecast %.1f%n",
+                    i + 1, demand[i], forecast[i]);
+        }
+
     }
 
     // TODO (b): Write the five methods from your pseudocode, in any order. Do
@@ -114,4 +158,57 @@ public class Assignment8_Q3 {
     //           absoluteValue(x): takes a double and returns a double: x
     //           without its sign. Make it private. (Do not use Math.abs.)
 
+    public static double[] readData(String fileName) throws FileNotFoundException {
+        Scanner input = new Scanner(new FileInputStream(fileName));
+
+        int weeks = input.nextInt();
+        double[] demand = new double[weeks];
+
+        // Read the demand for each week
+        for (int i = 0; i < weeks; i++) {
+            demand[i] = input.nextDouble();
+        }
+
+        input.close();
+        return demand;
+    }
+
+    public static double averageOf(double[] values, int start, int end) {
+        double total = 0.0;
+
+        for (int i = start; i < end; i++) {
+            total += values[i];
+        }
+
+        return total / (end - start);
+    }
+
+    public static double[] movingAverageForecast(double[] demand, int window) {
+        double[] forecast = new double[demand.length];
+
+        // Average the previous weeks for each forecast
+        for (int t = window; t < demand.length; t++) {
+            forecast[t] = averageOf(demand, t - window, t);
+        }
+
+        return forecast;
+    }
+
+    public static double meanAbsoluteError(double[] demand, double[] forecast, int start) {
+        double total = 0.0;
+
+        // Add the absolute errors from the starting week
+        for (int i = start; i < demand.length; i++) {
+            total += absoluteValue(demand[i] - forecast[i]);
+        }
+
+        return total / (demand.length - start);
+    }
+
+    private static double absoluteValue(double x) {
+        if (x < 0) {
+            return -x;
+        }
+        return x;
+    }
 }

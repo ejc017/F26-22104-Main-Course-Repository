@@ -1,3 +1,4 @@
+
 package instructor.assignments.A08;
 
 import java.io.FileInputStream;
@@ -11,6 +12,13 @@ public class Assignment8_Q1 {
     // (f) THE RUN: record the full console output of the finished
     //     program below, including the lines printed for part g.
     //
+    // Crew A: 8 workers, overtime pay $630.00, most hours: worker 6 (47.5 h)
+    // Crew B: 8 workers, overtime pay $750.00, most hours: worker 5 (49.0 h)
+    // Higher overtime pay: Crew B ($750.00 vs $630.00)
+    // Correct order: 180.0
+    // Swapped order: 1560.0
+    // testHours after resetHours: 46.0
+    // testCrew[0] after resetFirst: 0.0
     //
     // (g) WRITTEN ANSWERS
     //
@@ -20,9 +28,11 @@ public class Assignment8_Q1 {
     //         has the last two arguments swapped. Then run both and record
     //         what happened. Did the compiler complain? Why or why not?
     //
-    //           predicted:
-    //           actual:
-    //           why:
+    //           predicted: Correct order: 180.0, Swapped order: 1560.0
+    //           actual: Correct order: 180.0, Swapped order: 1560.0
+    //           why: The compiler did not complain because both arguments
+    //                are doubles. Java checks the types, not whether the
+    //                values are passed in the correct order.
     //
     //     (2) BEFORE running: predict the two lines printed by the
     //         resetHours / resetFirst test in main. Then run it and record
@@ -31,18 +41,28 @@ public class Assignment8_Q1 {
     //         T15 primer, section "Arrays and Methods", for what a method
     //         receives when it is passed an array.)
     //
-    //           predicted:
-    //           actual:
-    //           why:
+    //           predicted: testHours stays 46.0 and testCrew[0] becomes 0.0
+    //           actual: testHours after resetHours: 46.0
+    //                   testCrew[0] after resetFirst: 0.0
+    //           why: The double is passed by value, so changing it inside
+    //                the method does not affect the original variable.
+    //                The array reference is also passed by value, but it
+    //                still points to the same array, so its elements can change.
     //
     //     (3) premiumRate is private; the other methods are public. Why is
     //         private a reasonable choice for premiumRate?
     //
+    //         premiumRate is only used within this class to calculate
+    //         overtime pay. Making it private keeps other classes from
+    //         accessing a method they do not need to use.
     //
     //     (4) Suppose the company changes overtime from time-and-a-half to
     //         double time. Which method would you change, and which would
     //         you leave alone? Why does that work?
     //
+    //         I would change premiumRate to multiply by 2.0 instead of 1.5.
+    //         I would leave overtimePay alone because it already calls
+    //         premiumRate to get the overtime rate.
     //
     // ================================================================
 
@@ -70,10 +90,25 @@ public class Assignment8_Q1 {
         //           (with the shared amount; comparing the two amounts with
         //           == is fine here). Use an if / else if / else.
 
+        double totalA = totalOvertimePay(crewA, LIMIT, BASE_RATE);
+        double totalB = totalOvertimePay(crewB, LIMIT, BASE_RATE);
+
+        // Compare the overtime costs of both crews
+        if (totalA > totalB) {
+            System.out.printf("Higher overtime pay: Crew A ($%.2f vs $%.2f)%n", totalA, totalB);
+        } else if (totalB > totalA) {
+            System.out.printf("Higher overtime pay: Crew B ($%.2f vs $%.2f)%n", totalB, totalA);
+        } else {
+            System.out.printf("Both crews have overtime pay of $%.2f%n", totalA);
+        }
+
         // TODO (g1): Write these two lines in main, after you have written
         //            your prediction for written answer (1):
         //              System.out.println("Correct order: " + overtimePay(46.0, LIMIT, BASE_RATE));
         //              System.out.println("Swapped order: " + overtimePay(46.0, BASE_RATE, LIMIT));
+
+        System.out.println("Correct order: " + overtimePay(46.0, LIMIT, BASE_RATE));
+        System.out.println("Swapped order: " + overtimePay(46.0, BASE_RATE, LIMIT));
 
         // TODO (g2): Predict the two lines below first (written answer 2).
         //            Then call resetHours(testHours) and print
@@ -83,6 +118,12 @@ public class Assignment8_Q1 {
         //            (use println with + to join the label and the value).
         double testHours = 46.0;
         double[] testCrew = {46.0, 38.0};
+
+        resetHours(testHours);
+        System.out.println("testHours after resetHours: " + testHours);
+
+        resetFirst(testCrew);
+        System.out.println("testCrew[0] after resetFirst: " + testCrew[0]);
 
     }
 
@@ -96,7 +137,18 @@ public class Assignment8_Q1 {
     //           method that calls it, here main.)
     //           parameters: String     returns: double[]
     public static double[] readHours(String fileName) throws FileNotFoundException {
-        return null;
+        Scanner input = new Scanner(new FileInputStream(fileName));
+
+        int n = input.nextInt();
+        double[] hours = new double[n];
+
+        // Read each worker's hours into the array
+        for (int i = 0; i < n; i++) {
+            hours[i] = input.nextDouble();
+        }
+
+        input.close();
+        return hours;
     }
 
     // TODO (b): Return true if the hours worked are MORE than the limit,
@@ -105,7 +157,7 @@ public class Assignment8_Q1 {
     //           can be returned directly, or you can use an if.)
     //           parameters: double, double     returns: boolean
     public static boolean isOvertime(double hours, double limit) {
-        return false;
+        return hours > limit;
     }
 
     // TODO (b): Return how many overtime hours were worked: the hours above
@@ -113,6 +165,9 @@ public class Assignment8_Q1 {
     //           decide; do not repeat its comparison here.
     //           parameters: double, double     returns: double
     public static double overtimeHours(double hours, double limit) {
+        if (isOvertime(hours, limit)) {
+            return hours - limit;
+        }
         return 0.0;
     }
 
@@ -120,7 +175,7 @@ public class Assignment8_Q1 {
     //           half: the base rate times 1.5.
     //           parameters: double     returns: double
     private static double premiumRate(double baseRate) {
-        return 0.0;
+        return baseRate * 1.5;
     }
 
     // TODO (c): Return the overtime pay for one worker: the overtime hours
@@ -128,7 +183,7 @@ public class Assignment8_Q1 {
     //           premiumRate; do not repeat their work here.
     //           parameters: double, double, double     returns: double
     public static double overtimePay(double hours, double limit, double baseRate) {
-        return 0.0;
+        return overtimeHours(hours, limit) * premiumRate(baseRate);
     }
 
     // TODO (c): Return the total overtime pay for a whole crew: the sum of
@@ -136,14 +191,30 @@ public class Assignment8_Q1 {
     //           overtimePay for each worker.
     //           parameters: double[], double, double     returns: double
     public static double totalOvertimePay(double[] hours, double limit, double baseRate) {
-        return 0.0;
+        double total = 0.0;
+
+        // Add the overtime pay for each worker
+        for (int i = 0; i < hours.length; i++) {
+            total += overtimePay(hours[i], limit, baseRate);
+        }
+
+        return total;
     }
 
     // TODO (d): Return the INDEX of the worker with the most hours (the
     //           first one, if two tie).
     //           parameters: double[]     returns: int
     public static int indexOfMost(double[] hours) {
-        return 0;
+        int index = 0;
+
+        // Find the worker with the highest hours
+        for (int i = 1; i < hours.length; i++) {
+            if (hours[i] > hours[index]) {
+                index = i;
+            }
+        }
+
+        return index;
     }
 
     // TODO (d): Print one line for the label and array passed in, using
@@ -155,6 +226,12 @@ public class Assignment8_Q1 {
     //           the pay has 2 decimal places, and the hours have 1.
     //           parameters: String, double[], double, double     returns: nothing (void)
     public static void printReport(String label, double[] hours, double limit, double baseRate) {
+        double total = totalOvertimePay(hours, limit, baseRate);
+        int index = indexOfMost(hours);
+
+        // Add 1 since worker numbers start at 1
+        System.out.printf("%s: %d workers, overtime pay $%.2f, most hours: worker %d (%.1f h)%n",
+                label, hours.length, total, index + 1, hours[index]);
     }
 
     // ---- Provided for written answer (g2). Do not change these two methods. ----
